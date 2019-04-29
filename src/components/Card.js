@@ -10,7 +10,7 @@ const CardItem = styled(Link)`
   min-height: 500px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -18,7 +18,8 @@ const CardItem = styled(Link)`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: white;
+    color: ${props => props.theme.colors.color};
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
   }
 
@@ -37,31 +38,29 @@ const Cover = styled.div`
 `
 
 const Content = styled.div`
-  padding: 1rem;
-  position: relative;
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: opacity 0.4s ease;
   opacity: 0;
-  background: ${props => rgba(props.theme.colors.link, 0.65)};
-  height: 0;
+  background: ${props => rgba(props.theme.colors.bg, 0.8)};
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 
   ${CardItem}:hover & {
     opacity: 1;
-    height: 120px;
   }
 `
 
-const Bottom = styled.div`
-  margin-top: 0.5rem;
-  display: flex;
-  align-items: center;
-  font-size: 0.85rem;
-  div:first-child {
-    margin-right: 1rem;
-  }
-`
-
-const Name = styled.h2`
-  margin-bottom: 0;
+const Name = styled.h1`
+  margin-bottom: 1rem;
   margin-top: 0;
 `
 
@@ -81,8 +80,8 @@ const Card = ({ path, cover, date, areas, title, delay }) => {
         </Cover>
         <Content>
           <Name>{title}</Name>
-          <Bottom>
-            <div>{date}</div>
+          {date && <div>{date}</div>}
+          {areas && (
             <div>
               {areas.map((area, index) => (
                 <React.Fragment key={area}>
@@ -91,7 +90,7 @@ const Card = ({ path, cover, date, areas, title, delay }) => {
                 </React.Fragment>
               ))}
             </div>
-          </Bottom>
+          )}
         </Content>
       </CardItem>
     </animated.div>
@@ -103,8 +102,13 @@ export default Card
 Card.propTypes = {
   path: PropTypes.string.isRequired,
   cover: PropTypes.object.isRequired,
-  date: PropTypes.string.isRequired,
-  areas: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
   delay: PropTypes.number.isRequired,
+  date: PropTypes.string,
+  areas: PropTypes.array,
+}
+
+Card.defaultProps = {
+  areas: [],
+  date: null,
 }

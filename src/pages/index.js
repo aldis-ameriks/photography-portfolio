@@ -22,10 +22,11 @@ const Grid = styled.div`
 `
 
 const Content = styled.div`
-  margin: -6rem auto 0 auto;
   max-width: ${props => props.theme.maxWidths.general};
   padding: 0 ${props => props.theme.contentPadding} 6rem;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const BG = styled.div`
@@ -38,7 +39,7 @@ const Index = ({
   },
 }) => (
   <Layout>
-    <Header avatar={config.avatar} name={config.name} location={config.location} socialMedia={config.socialMedia} />
+    <Header avatar={config.avatar} name={config.name} location={config.location} />
     <BG>
       <Content>
         <Grid>
