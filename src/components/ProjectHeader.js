@@ -16,7 +16,7 @@ const Content = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: ${props => props.theme.maxWidths.general};
-  padding: 2rem 1.0875rem 13rem 1.0875rem;
+  padding: 2rem 1.0875rem 5rem 1.0875rem;
   color: ${props => props.theme.colors.secondary};
 `
 
@@ -49,13 +49,13 @@ const Avatar = styled.div`
 `
 
 const Name = styled(animated.h4)`
-  margin: 0 0 0 1rem;
+  margin: 0;
   color: ${props => props.theme.colors.color};
 `
 
 const Details = styled.div`
   width: 100%;
-  margin-top: 6rem;
+  margin-top: 3rem;
   text-align: center;
 
   h1 {
@@ -65,8 +65,7 @@ const Details = styled.div`
 
 const Text = styled.div`
   max-width: 750px;
-  margin: 4rem auto 2rem auto;
-  color: white;
+  margin: 2rem auto 2rem auto;
 `
 
 const ProjectHeader = ({ avatar, name, title, date, areas, text }) => {
@@ -83,23 +82,22 @@ const ProjectHeader = ({ avatar, name, title, date, areas, text }) => {
       <Content>
         <Back to="/">
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
-          <Avatar>
-            <img src={avatar} alt={name} />
-          </Avatar>
-          <Name>{name}</Name>
+          <Name>Home</Name>
         </Back>
         <Details>
           <animated.h1 style={titleProps}>{title}</animated.h1>
           <animated.div style={contentProps}>
-            <p>{date}</p>
-            <div>
-              {areas.map((area, index) => (
-                <React.Fragment key={area}>
-                  {index > 0 && ', '}
-                  {area}
-                </React.Fragment>
-              ))}
-            </div>
+            {date && <p>{date}</p>}
+            {areas && (
+              <div>
+                {areas.map((area, index) => (
+                  <React.Fragment key={area}>
+                    {index > 0 && ', '}
+                    {area}
+                  </React.Fragment>
+                ))}
+              </div>
+            )}
             {text && (
               <Text>
                 <MDXRenderer>{text}</MDXRenderer>
@@ -118,7 +116,12 @@ ProjectHeader.propTypes = {
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  areas: PropTypes.array.isRequired,
   text: PropTypes.string.isRequired,
+  date: PropTypes.string,
+  areas: PropTypes.array,
+}
+
+ProjectHeader.defaultProps = {
+  areas: [],
+  date: null,
 }

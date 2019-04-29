@@ -23,7 +23,7 @@ module.exports = {
 
   // Your information
   avatar: '/logos/lekoarts.png',
-  name: 'LekoArts',
+  name: 'Aldis Ameriks',
   location: 'Germany',
   socialMedia: [
     {
