@@ -5,7 +5,7 @@ module.exports = {
   siteTitleAlt: 'Aldis Ameriks - Photography', // Alternative Site title for SEO
   siteTitleShort: 'AA Photography', // short_name for manifest
   siteHeadline: 'AA Photography', // Headline for schema.org JSONLD
-  siteUrl: 'http://localhost:8000', // Domain of your site. No trailing slash!
+  siteUrl: 'http://photography-portfolio.s3-website-eu-west-1.amazonaws.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: '/logos/AA_black.png', // Used for SEO and manifest
   siteDescription: 'Photography portfolio',
