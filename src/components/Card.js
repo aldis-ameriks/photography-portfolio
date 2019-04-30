@@ -67,7 +67,7 @@ const Name = styled.h1`
 const Card = ({ path, cover, date, areas, title, delay }) => {
   const springProps = useSpring({
     config: config.slow,
-    delay: 200 * delay,
+    delay: 100 * delay,
     from: { opacity: 0, transform: 'translate3d(0, 30px, 0)' },
     to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
   })

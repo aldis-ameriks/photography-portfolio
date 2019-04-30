@@ -1,3 +1,3 @@
-import pageElementWithTransition from './src/utils/wrapPageElement'
-
-export const wrapPageElement = pageElementWithTransition
+// import pageElementWithTransition from './src/utils/wrapPageElement'
+//
+// export const wrapPageElement = pageElementWithTransition
