@@ -35,9 +35,9 @@ const Layout = ({ children, customSEO }) => (
     <>
       {!customSEO && <SEO />}
       <GlobalStyle />
-      <noscript>To browse this site, please enable JavaScript.</noscript>
       <AbsoluteWrapper>
         <Navbar />
+        <noscript>To browse this site, please enable JavaScript.</noscript>
         {children}
         <Footer />
       </AbsoluteWrapper>
