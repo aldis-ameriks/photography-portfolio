@@ -15,7 +15,7 @@ module.exports = {
   // userTwitter: '', // Twitter Username
   // ogSiteName: 'emilia', // Facebook Site Name
   ogLanguage: 'en_US', // og:language
-  googleAnalyticsID: 'UA-47519312-4',
+  googleAnalyticsID: 'UA-134925752-3',
 
   // Manifest and Progress color
   themeColor: '#3498DB',
