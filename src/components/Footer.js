@@ -10,6 +10,6 @@ const Content = styled.footer`
   background: ${props => props.theme.colors.bg};
 `
 
-const Footer = () => <Content>Design and pictures by Aldis Ameriks. &copy; 2019.</Content>
+const Footer = () => <Content>Design and pictures by Aldis Ameriks &copy; 2019.</Content>
 
 export default Footer
