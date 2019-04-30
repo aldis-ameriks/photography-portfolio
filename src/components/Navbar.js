@@ -21,6 +21,7 @@ const Entries = styled.div`
 `
 
 const Image = styled.img`
+  top: 14px;
   cursor: pointer;
   position: absolute;
 `
@@ -28,7 +29,7 @@ const Image = styled.img`
 const Navbar = () => (
   <NavbarStyled>
     <Link to="/">
-      <Image src="logos/AA_black.png" alt="" width="50" />
+      <Image src="/logos/AA_black.png" alt="" width="50" />
     </Link>
     <Entries>
       <Entry to="/">Home</Entry>
