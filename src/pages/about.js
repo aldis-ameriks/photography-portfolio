@@ -1,5 +1,6 @@
-import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
+import { animated, useSpring } from 'react-spring'
 import styled from 'styled-components'
 import config from '../../config/site'
 import { Header, Layout } from '../components'
@@ -26,20 +27,44 @@ const Avatar = styled.div`
   }
 `
 
+const texts = [
+  'Hello 👋',
+  "My name is Aldis Ameriks, I'm from Latvia 🇱🇻",
+  "I'm a software developer who also loves photography 📷",
+  'Have feedback, or want to ask something? <a href="mailto:aldis.ameriks@gmail.com">Drop me an email ✉️</a>',
+]
+
+const AnimatedText = ({ text, delay }) => {
+  const springProps = useSpring({
+    config: config.slow,
+    delay: 100 * delay,
+    from: { opacity: 0, transform: 'translate3d(0, 30px, 0)' },
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+  })
+
+  return (
+    <animated.div style={springProps}>
+      <p dangerouslySetInnerHTML={{ __html: text }} />
+    </animated.div>
+  )
+}
+
+AnimatedText.propTypes = {
+  text: PropTypes.string.isRequired,
+  delay: PropTypes.number.isRequired,
+}
+
 const About = () => (
   <Layout>
     <Header avatar={config.avatar} name={config.name} location={config.location} />
     <Content>
       <ContentWrapper>
         <Avatar>
-          <img src="me.jpg" alt="" />
+          <img src="/me.jpg" alt="" />
         </Avatar>
-        <p>Hello 👋</p>
-        <p>My name is Aldis Ameriks, I'm from Latvia 🇱🇻</p>
-        <p>I'm a software developer who also loves photography 📷</p>
-        <p>
-          Have feedback, or want to ask something? <a href="mailto:aldis.ameriks@gmail.com">Drop me an email ✉️</a>
-        </p>
+        {texts.map((text, i) => (
+          <AnimatedText delay={i} text={text} />
+        ))}
       </ContentWrapper>
     </Content>
   </Layout>
