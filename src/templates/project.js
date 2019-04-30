@@ -39,9 +39,8 @@ const InnerWrapper = styled.div`
 
 class Project extends Component {
   state = {
-    shareOpen: false,
-    anchorEl: null,
     lightbox: false,
+    // eslint-disable-next-line react/destructuring-assignment
     photos: this.props.data.images.edges.map(image =>
       Object.assign({
         srcSet: image.node.childImageSharp.fluid.srcSetWebp,
