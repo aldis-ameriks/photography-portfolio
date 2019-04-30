@@ -72,8 +72,8 @@ const reset = css`
     color: ${theme.colors.color};
   }
   ::selection {
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.link};
+    // color: ${theme.colors.white};
+    // background-color: ${theme.colors.link};
   }
   a {
     color: ${theme.colors.link};

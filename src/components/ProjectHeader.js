@@ -16,7 +16,7 @@ const Content = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: ${props => props.theme.maxWidths.general};
-  padding: 2rem 1.0875rem 5rem 1.0875rem;
+  padding: 0 1.0875rem 5rem 1.0875rem;
   color: ${props => props.theme.colors.secondary};
 `
 
@@ -30,21 +30,6 @@ const Back = styled(Link)`
     width: 1.5rem;
     height: 1.5rem;
     margin: 0 1rem 0 0;
-  }
-`
-
-const Avatar = styled.div`
-  height: 3rem;
-  width: 3rem;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -o-crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  -ms-interpolation-mode: nearest-neighbor;
-
-  img {
-    border-radius: 50%;
-    height: auto;
-    width: 100%;
   }
 `
 
@@ -68,7 +53,7 @@ const Text = styled.div`
   margin: 2rem auto 2rem auto;
 `
 
-const ProjectHeader = ({ avatar, name, title, date, areas, text }) => {
+const ProjectHeader = ({ title, date, areas, text }) => {
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
@@ -113,8 +98,6 @@ const ProjectHeader = ({ avatar, name, title, date, areas, text }) => {
 export default ProjectHeader
 
 ProjectHeader.propTypes = {
-  avatar: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   date: PropTypes.string,

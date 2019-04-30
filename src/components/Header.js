@@ -24,18 +24,22 @@ const Name = styled.h1`
   color: ${props => props.theme.colors.color};
 `
 
-const Header = ({ avatar, name, location }) => (
+const Header = ({ text }) => (
   <Wrapper>
-    <Content>
-      <Name>Gallery</Name>
-    </Content>
+    {text && (
+      <Content>
+        <Name>{text}</Name>
+      </Content>
+    )}
   </Wrapper>
 )
 
 export default Header
 
 Header.propTypes = {
-  avatar: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
+  text: PropTypes.string,
+}
+
+Header.defaultProps = {
+  text: null,
 }

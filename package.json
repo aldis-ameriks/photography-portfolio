@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-portfolio-emilia",
-  "description": "Dark themed, image-heavy portfolio. Page transitions & animations. Big images & gatsby-mdx.",
-  "version": "3.0.0",
-  "author": "LekoArts <hello@lekoarts.de> (https://www.lekoarts.de)",
+  "name": "photo-portfolio",
+  "description": "Personal photography portfolio",
+  "version": "1.0.0",
+  "author": "Aldis Ameriks",
   "scripts": {
     "develop": "gatsby develop",
     "dev": "gatsby develop -o",
@@ -68,20 +68,18 @@
     "prettier": "^1.17.0",
     "start-server-and-test": "^1.7.13"
   },
-  "homepage": "https://emilia.lekoarts.de",
+  "homepage": "http://localhost:3000",
   "bugs": {
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-emilia/issues"
+    "url": "https://github.com/aldis-ameriks/photo-portfolio/issues"
   },
   "keywords": [
     "gatsby",
-    "gatsby-starter",
-    "gatsby-starter-portfolio",
-    "lekoarts"
+    "photography"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LekoArts/gatsby-starter-portfolio-emilia.git"
+    "url": "git+https://github.com/aldis-ameriks/photo-portfolio.git"
   }
 }
