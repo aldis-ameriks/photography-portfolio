@@ -43,9 +43,9 @@ class Project extends Component {
     // eslint-disable-next-line react/destructuring-assignment
     photos: this.props.data.images.edges.map(image =>
       Object.assign({
-        srcSet: image.node.childImageSharp.fluid.srcSetWebp,
-        src: image.node.childImageSharp.fixed.srcWebp,
-        thumbnail: image.node.childImageSharp.fixed.srcWebp,
+        srcSet: image.node.childImageSharp.fluid.srcSet,
+        src: image.node.childImageSharp.fixed.src,
+        thumbnail: image.node.childImageSharp.fixed.src,
       })
     ),
   }
@@ -153,8 +153,8 @@ export const pageQuery = graphql`
             fluid(maxWidth: 1600, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp
             }
-            fixed(width: 50, height: 50) {
-              srcWebp
+            fixed(width: 100, height: 100) {
+              src
             }
           }
         }
