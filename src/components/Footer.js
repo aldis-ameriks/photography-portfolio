@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Content = styled.footer`
-  color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.primary};
   text-align: center;
   font-size: 0.9rem;
   padding-top: 3rem;
@@ -10,6 +10,6 @@ const Content = styled.footer`
   background: ${props => props.theme.colors.bg};
 `
 
-const Footer = () => <Content>Design and pictures by Aldis Ameriks &copy; 2019.</Content>
+const Footer = () => <Content>Design and pictures by Aldis Ameriks &copy; 2019</Content>
 
 export default Footer

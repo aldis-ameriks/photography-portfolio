@@ -29,7 +29,7 @@ const Image = styled.img`
 const Navbar = () => (
   <NavbarStyled>
     <Link to="/">
-      <Image src="/logos/AA_black.png" alt="" width="50" />
+      <Image src="/logos/AA_black.png" width="50" data-info="home" alt="Go to home" aria-label="Go to home" />
     </Link>
     <Entries>
       <Entry to="/">Home</Entry>
