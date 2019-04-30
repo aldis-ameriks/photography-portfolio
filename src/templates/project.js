@@ -72,11 +72,12 @@ class Project extends Component {
 
   render() {
     const {
-      pageContext: { slug, prev, next },
+      pageContext: { slug },
       data: { project: postNode, images: imgs },
     } = this.props
     const images = imgs.edges
     const project = postNode.frontmatter
+    const { photos, photo, lightbox } = this.state
     return (
       <Layout customSEO>
         <SEO postPath={slug} postNode={postNode} postSEO />
@@ -102,13 +103,13 @@ class Project extends Component {
             backdropClosesModal
             width={1600}
             showThumbnails
-            images={this.state.photos}
-            currentImage={this.state.photo}
-            isOpen={this.state.lightbox}
+            images={photos}
+            currentImage={photo}
+            isOpen={lightbox}
             onClickPrev={() => this.gotoPrevLightboxImage()}
             onClickNext={() => this.gotoNextLightboxImage()}
             onClose={() => this.closeLightbox()}
-            onClickThumbnail={photo => this.setState({ photo })}
+            onClickThumbnail={p => this.setState({ photo: p })}
           />
         </BG>
       </Layout>

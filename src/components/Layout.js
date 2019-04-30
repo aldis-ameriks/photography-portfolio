@@ -6,6 +6,7 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { SEO, Footer } from './index'
 import theme from '../../config/theme'
 import reset from '../styles/reset'
+import Navbar from './Navbar'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -36,6 +37,7 @@ const Layout = ({ children, customSEO }) => (
       <GlobalStyle />
       <noscript>To browse this site, please enable JavaScript.</noscript>
       <AbsoluteWrapper>
+        <Navbar />
         {children}
         <Footer />
       </AbsoluteWrapper>

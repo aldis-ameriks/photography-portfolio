@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import { Card, Header, Layout } from '../components'
 import config from '../../config/site'
+import Content from '../components/Content'
 
 const Grid = styled.div`
   display: grid;
@@ -19,14 +20,6 @@ const Grid = styled.div`
   .gatsby-image-wrapper {
     position: static !important;
   }
-`
-
-const Content = styled.div`
-  max-width: ${props => props.theme.maxWidths.general};
-  padding: 0 ${props => props.theme.contentPadding} 6rem;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
 `
 
 const BG = styled.div`
