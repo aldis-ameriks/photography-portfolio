@@ -10,6 +10,7 @@
     "serve": "gatsby serve",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
+    "lint:staged": "lint-staged",
     "format": "prettier \"**/*.{md,mdx} \" --write",
     "lint:ci": "yarn lint --format junit -o results/eslint/result.xml",
     "cy:open": "cypress open",
@@ -66,6 +67,8 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "gatsby-cypress": "^0.1.8",
+    "lint-staged": "^8.1.5",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.17.0",
     "start-server-and-test": "^1.7.13"
   },
@@ -82,5 +85,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aldis-ameriks/photo-portfolio.git"
+  },
+  "pre-commit": [
+    "lint:staged"
+  ],
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix --ext .js,.jsx --ignore-path .gitignore",
+      "git add"
+    ]
   }
 }
