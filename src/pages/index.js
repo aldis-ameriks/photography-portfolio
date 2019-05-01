@@ -32,7 +32,7 @@ const Index = ({
   },
 }) => (
   <Layout>
-    <Header avatar={config.avatar} name={config.name} location={config.location} />
+    <Header />
     <BG>
       <Content>
         <Grid>

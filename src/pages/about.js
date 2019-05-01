@@ -56,7 +56,7 @@ AnimatedText.propTypes = {
 
 const About = () => (
   <Layout>
-    <Header avatar={config.avatar} name={config.name} location={config.location} />
+    <Header />
     <Content>
       <ContentWrapper>
         <Avatar>
