@@ -1,10 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 
 import { Card, Header, Layout } from '../components'
-import config from '../../config/site'
 import Content from '../components/Content'
 
 const Grid = styled.div`
