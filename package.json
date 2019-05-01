@@ -21,8 +21,8 @@
     "deploy": "gatsby build && gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id ESWWGQO87U7XM --paths \"/*\""
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.0.10",
-    "@mdx-js/react": "^1.0.6",
+    "@mdx-js/mdx": "^1.0.16",
+    "@mdx-js/react": "^1.0.16",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.3.25",
     "gatsby-image": "^2.0.39",
