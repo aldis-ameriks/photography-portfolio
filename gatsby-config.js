@@ -41,6 +41,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-lodash',
+    'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
