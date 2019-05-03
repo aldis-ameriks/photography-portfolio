@@ -8,7 +8,7 @@ module.exports = {
   siteUrl: 'https://aldisameriks.photos', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: '/logos/AA_black.png', // Used for SEO and manifest
-  siteDescription: 'Photography portfolio',
+  siteDescription: 'Aldis Ameriks - Personal photography portfolio',
   author: 'Aldis Ameriks', // Author for schema.org JSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
