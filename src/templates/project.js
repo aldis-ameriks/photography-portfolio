@@ -35,6 +35,8 @@ const OuterWrapper = styled.div`
 const InnerWrapper = styled.div`
   break-inside: avoid;
   margin-bottom: 15px;
+  display: inline-block;
+  width: 100%;
 `
 
 class Project extends Component {
