@@ -1,6 +1,7 @@
+import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import theme from '../../config/theme'
 
 const NavbarStyled = styled.div`
   width: 100%;
@@ -21,9 +22,12 @@ const Entries = styled.div`
 `
 
 const Image = styled.img`
-  top: 14px;
+  top: 11px;
   cursor: pointer;
   position: absolute;
+  @media (min-width: ${theme.breakpoints.m}) {
+    top: 14px;
+  }
 `
 
 const Navbar = () => (
