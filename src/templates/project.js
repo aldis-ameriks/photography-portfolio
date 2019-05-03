@@ -35,8 +35,14 @@ const OuterWrapper = styled.div`
 const InnerWrapper = styled.div`
   break-inside: avoid;
   margin-bottom: 15px;
-  display: inline-block;
-  width: 100%;
+
+  // Fix column layout on safari
+  @media not all and (min-resolution: 0.001dpcm) {
+    @media {
+      display: inline-block;
+      width: 100%;
+    }
+  }
 `
 
 class Project extends Component {
