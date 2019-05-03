@@ -69,12 +69,17 @@ class Project extends Component {
   }
 
   openLightbox(photo, event) {
+    this.img = event.target
     event.preventDefault()
     this.setState({ lightbox: true, photo })
   }
 
   closeLightbox() {
     this.setState({ lightbox: false })
+    if (this.img) {
+      this.img.scrollIntoView()
+      this.img = null
+    }
   }
 
   render() {
