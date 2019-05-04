@@ -2,14 +2,14 @@
 
 A blazing fast photography portfolio built with Gatsby. 🔥
 
-https://aldisameriks.photos/
+https://aldisameriks.photos
 
-Features:
+## Features
 
-- Static hosting in s3
-- PWA
-- SEO optimized
-- Blazing fast
-- Near 100 Lighthouse scores
+- Near 100 Lighthouse scores 🏆
+- Static hosting in s3 ☁️
+- SEO optimized 🕵️‍♂️
+- Blazing fast 🔥
+- PWA 💣
 
 <img src="./lighthouse.png" width="749" height="136" />
