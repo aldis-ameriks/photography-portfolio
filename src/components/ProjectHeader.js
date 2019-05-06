@@ -1,11 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { useSpring, animated, config } from 'react-spring'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-
-import arrow from '../images/left-chevron.svg'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { animated, config, useSpring } from 'react-spring'
+import styled from 'styled-components'
+import BackLink from './BackLink'
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,24 +16,6 @@ const Content = styled.div`
   max-width: ${props => props.theme.maxWidths.general};
   padding: 0 1.0875rem 5rem 1.0875rem;
   color: ${props => props.theme.colors.secondary};
-`
-
-const Back = styled(Link)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-
-  img[data-info='back'] {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: 0 1rem 0 0;
-  }
-`
-
-const Name = styled(animated.h4)`
-  margin: 0;
-  color: ${props => props.theme.colors.color};
 `
 
 const Details = styled.div`
@@ -65,10 +45,7 @@ const ProjectHeader = ({ title, date, areas, text }) => {
   return (
     <Wrapper>
       <Content>
-        <Back to="/">
-          <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
-          <Name>Home</Name>
-        </Back>
+        <BackLink />
         <Details>
           <animated.h1 style={titleProps}>{title}</animated.h1>
           <animated.div style={contentProps}>
