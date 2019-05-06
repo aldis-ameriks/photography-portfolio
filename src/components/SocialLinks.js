@@ -41,15 +41,15 @@ const SocialLinks = ({ delay }) => {
 
   return (
     <SocialLinkWrapper style={animationProps}>
-      <SocialLink href="https://www.linkedin.com/in/aldis-ameriks" target="_blank">
+      <SocialLink href="https://www.linkedin.com/in/aldis-ameriks" target="_blank" rel="noreferrer">
         <img src="/logos/linkedin.png" alt="" width="24" height="24" />
         <span>Linkedin profile</span>
       </SocialLink>
-      <SocialLink href="https://github.com/aldis-ameriks" target="_blank">
+      <SocialLink href="https://github.com/aldis-ameriks" target="_blank" rel="noreferrer">
         <img src="/logos/github.png" alt="" width="24" height="24" />
         <span>Github profile</span>
       </SocialLink>
-      <SocialLink href="https://500px.com/aldis-ameriks" target="_blank">
+      <SocialLink href="https://500px.com/aldis-ameriks" target="_blank" rel="noreferrer">
         <img src="/logos/500px.png" alt="" width="19.04" height="24" />
         <span>500px profile</span>
       </SocialLink>
