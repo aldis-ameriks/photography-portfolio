@@ -3,6 +3,7 @@ import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components'
 import { Header, Layout } from '../components'
+import BackLink from '../components/BackLink'
 import Content from '../components/Content'
 import SocialLinks from '../components/SocialLinks'
 import { useTextAnimation } from '../styles/animation'
@@ -53,6 +54,7 @@ const About = () => (
   <Layout>
     <Header />
     <Content>
+      <BackLink />
       <ContentWrapper>
         <Avatar>
           <img src="/me.jpg" alt="" />

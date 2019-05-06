@@ -1,27 +1,24 @@
 describe('about', () => {
-  before(() => {
+  it('should be accessible from home page', () => {
     cy.visit('/')
       .getByText('About me')
       .click()
-  })
-
-  it('should be accessible from home page', () => {
-    cy.assertRoute('/about')
+      .assertRoute('/about')
   })
 
   it('contains expected content', () => {
-    cy.getByText(/hello/i)
+    cy.visit('/about')
+      .getByText(/hello/i)
       .getByText(/drop me an email/i)
       .getByText(/linkedin profile/i)
       .getByText(/github profile/i)
       .getByText(/500px profile/i)
   })
 
-  describe('clicking Home', () => {
-    it('leads back to home page', () => {
-      cy.getByText('Home')
-        .click()
-        .assertRoute('/')
-    })
+  it('should have working back to home link', () => {
+    cy.visit('/about')
+      .getByAltText(/Back to home/i)
+      .click()
+      .assertRoute('/')
   })
 })
