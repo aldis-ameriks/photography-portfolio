@@ -58,7 +58,7 @@ const About = () => (
           <img src="/me.jpg" alt="" />
         </Avatar>
         {texts.map((text, i) => (
-          <AnimatedText delay={i} text={text} />
+          <AnimatedText key={text} delay={i} text={text} />
         ))}
         <SocialLinks delay={texts.length + 2} />
       </ContentWrapper>
