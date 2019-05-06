@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { animated } from 'react-spring'
 import styled from 'styled-components'
+import { rgba } from 'polished'
 
 import { useTextAnimation } from '../styles/animation'
 
@@ -13,7 +14,7 @@ const SocialLinkWrapper = styled(animated.div)`
 `
 
 const SocialLink = styled.a`
-  border: 1px solid #b9b9b9;
+  border: 1px solid ${props => rgba(props.theme.colors.secondary, 0.5)};
   display: inline-block;
   padding: 0.35rem 0.5rem;
   border-radius: 5px;
@@ -24,6 +25,7 @@ const SocialLink = styled.a`
 
   :hover,
   :focus {
+    border: 1px solid ${props => rgba(props.theme.colors.secondary, 0.8)};
     box-shadow: 1px 3px 4px 2px rgba(0, 0, 0, 0.2);
     color: black;
   }
