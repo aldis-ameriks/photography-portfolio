@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { animated, useSpring } from 'react-spring'
+import { animated } from 'react-spring'
 import styled from 'styled-components'
-import config from '../../config/site'
 import { Header, Layout } from '../components'
 import Content from '../components/Content'
+import SocialLinks from '../components/SocialLinks'
+import { useTextAnimation } from '../styles/animation'
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(animated.div)`
   margin-top: 5rem;
   text-align: center;
 `
@@ -35,15 +36,9 @@ const texts = [
 ]
 
 const AnimatedText = ({ text, delay }) => {
-  const springProps = useSpring({
-    config: config.slow,
-    delay: 100 * delay,
-    from: { opacity: 0, transform: 'translate3d(0, 30px, 0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
-  })
-
+  const animationProps = useTextAnimation(delay)
   return (
-    <animated.div style={springProps}>
+    <animated.div style={animationProps}>
       <p dangerouslySetInnerHTML={{ __html: text }} />
     </animated.div>
   )
@@ -65,6 +60,7 @@ const About = () => (
         {texts.map((text, i) => (
           <AnimatedText delay={i} text={text} />
         ))}
+        <SocialLinks delay={texts.length + 2} />
       </ContentWrapper>
     </Content>
   </Layout>
