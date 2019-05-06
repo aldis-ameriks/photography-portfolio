@@ -10,7 +10,11 @@ describe('about', () => {
   })
 
   it('contains expected content', () => {
-    cy.getByText(/hello/i).getByText(/drop me an email/i)
+    cy.getByText(/hello/i)
+      .getByText(/drop me an email/i)
+      .getByText(/linkedin profile/i)
+      .getByText(/github profile/i)
+      .getByText(/500px profile/i)
   })
 
   describe('clicking Home', () => {
