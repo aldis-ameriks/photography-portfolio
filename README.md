@@ -4,6 +4,8 @@ A blazing fast photography portfolio built with Gatsby. 🔥
 
 https://aldisameriks.photos
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0ddf3b50-4241-47c8-93c1-a86eb416af01/deploy-status)](https://app.netlify.com/sites/modest-williams-3f8772/deploys)
+
 ## Features
 
 - Near 100 Lighthouse scores 🏆
