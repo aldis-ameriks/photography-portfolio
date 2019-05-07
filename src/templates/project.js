@@ -44,6 +44,7 @@ const InnerWrapper = styled.div`
     @media {
       display: inline-block;
       width: 100%;
+      margin-bottom: 10px;
     }
   }
 `
