@@ -10,7 +10,8 @@ https://aldisameriks.photos
 ## Features
 
 - Near 100 Lighthouse scores 🏆
-- Static hosting in s3 ☁️
+- Static hosting in Netlify ☁️
+- Automated CI/CD ⚙️
 - SEO optimized 🕵️‍♂️
 - Blazing fast 🔥
 - PWA 💣
