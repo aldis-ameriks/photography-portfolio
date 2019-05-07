@@ -1,8 +1,10 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Layout } from '../components'
+
 import Content from '../components/Content'
+import Header from '../components/Header'
+import Layout from '../components/Layout'
 
 const ContentWrapper = styled.div`
   margin-top: 5rem;

@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 
-import { Card, Header, Layout } from '../components'
+import Card from '../components/Card'
 import Content from '../components/Content'
+import Header from '../components/Header'
+import Layout from '../components/Layout'
 
 const Grid = styled.div`
   display: grid;
