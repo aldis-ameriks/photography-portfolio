@@ -57,11 +57,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    {
-      resolve: `gatsby-plugin-s3`,
-      options: {
-        bucketName: 'photography-portfolio',
-      },
-    },
+    'gatsby-plugin-netlify',
   ],
 }
