@@ -2,9 +2,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components'
-import { Header, Layout } from '../components'
+
 import BackLink from '../components/BackLink'
 import Content from '../components/Content'
+import Header from '../components/Header'
+import Layout from '../components/Layout'
 import SocialLinks from '../components/SocialLinks'
 import { useTextAnimation } from '../styles/animation'
 

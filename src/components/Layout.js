@@ -3,10 +3,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 
-import { SEO, Footer } from './index'
 import theme from '../../config/theme'
 import reset from '../styles/reset'
+import Footer from './Footer'
 import Navbar from './Navbar'
+import SEO from './SEO'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

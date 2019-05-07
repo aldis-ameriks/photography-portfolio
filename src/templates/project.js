@@ -6,7 +6,9 @@ import Lightbox from 'react-images'
 import styled from 'styled-components'
 
 import config from '../../config/site'
-import { Layout, ProjectHeader, SEO } from '../components'
+import Layout from '../components/Layout'
+import ProjectHeader from '../components/ProjectHeader'
+import SEO from '../components/SEO'
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
