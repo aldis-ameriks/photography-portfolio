@@ -37,6 +37,7 @@ const OuterWrapper = styled.div`
 const InnerWrapper = styled.div`
   break-inside: avoid;
   margin-bottom: 15px;
+  cursor: pointer;
 
   // Fix column layout on safari
   @media not all and (min-resolution: 0.001dpcm) {

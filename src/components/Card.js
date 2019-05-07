@@ -20,7 +20,6 @@ const CardItem = styled(Link)`
   &:hover {
     color: ${props => props.theme.colors.color};
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-6px);
   }
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
@@ -38,7 +37,7 @@ const Cover = styled.div`
 `
 
 const Content = styled.div`
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   opacity: 0;
   background: ${props => rgba(props.theme.colors.bg, 0.8)};
 
