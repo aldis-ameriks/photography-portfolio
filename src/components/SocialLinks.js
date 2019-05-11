@@ -6,9 +6,13 @@ import styled from 'styled-components'
 import { useTextAnimation } from '../styles/animation'
 
 const SocialLinkWrapper = styled(animated.div)`
-  margin-top: 5rem;
+  margin-top: 1rem;
   & > * {
     margin: 0.5rem;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.s}) {
+    margin-top: 5rem;
   }
 `
 
