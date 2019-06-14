@@ -45,7 +45,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-images": "^0.5.19",
+    "react-images": "^0.6.7",
     "react-spring": "^8.0.25",
     "styled-components": "^4.3.1",
     "styled-theming": "^2.2.0",
