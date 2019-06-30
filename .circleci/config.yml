@@ -12,7 +12,7 @@ executors:
 aliases:
   e2e-executor: &e2e-executor
     docker:
-    - image: cypress/browsers:chrome69
+    - image: cypress/browsers:node8.15.1-chrome73
       environment:
         TERM: xterm
 
