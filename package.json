@@ -55,7 +55,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "cross-env": "^5.2.1",
-    "cypress": "^3.5.0",
+    "cypress": "^3.6.1",
     "cypress-testing-library": "^3.0.1",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^17.1.1",
