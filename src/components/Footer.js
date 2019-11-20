@@ -15,7 +15,7 @@ const Footer = () => (
     <a href="https://github.com/aldis-ameriks/photography-portfolio" rel="noreferrer">
       code
     </a>
-    , design and pictures by Aldis Ameriks &copy; 2019
+    , design and pictures by Aldis Ameriks &copy; {new Date().getFullYear()}
   </Content>
 )
 
