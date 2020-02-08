@@ -1,23 +1,23 @@
 describe('about', () => {
   it('should be accessible from home page', () => {
     cy.visit('/')
-      .getByText('About me')
+      .findByText('About me')
       .click()
       .assertRoute('/about')
   })
 
   it('contains expected content', () => {
     cy.visit('/about')
-      .getByText(/hello/i)
-      .getByText(/drop me an email/i)
-      .getByText(/linkedin profile/i)
-      .getByText(/github profile/i)
-      .getByText(/500px profile/i)
+      .findByText(/hello/i)
+      .findByText(/drop me an email/i)
+      .findByText(/linkedin profile/i)
+      .findByText(/github profile/i)
+      .findByText(/500px profile/i)
   })
 
   it('should have working back to home link', () => {
     cy.visit('/about')
-      .getByAltText(/Back to home/i)
+      .findByAltText(/Back to home/i)
       .click()
       .assertRoute('/')
   })
