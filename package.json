@@ -16,6 +16,7 @@
     "test:e2e:run": "cross-env CYPRESS_SUPPORT=y start-server-and-test develop http://localhost:8000 cy:run"
   },
   "dependencies": {
+    "@babel/core": "^7.8.4",
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "babel-plugin-styled-components": "^1.10.7",
