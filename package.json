@@ -1,5 +1,5 @@
 {
-  "name": "photo-portfolio",
+  "name": "photography-portfolio",
   "description": "Personal photography portfolio",
   "version": "1.0.0",
   "author": "Aldis Ameriks",
@@ -11,7 +11,7 @@
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "format": "prettier \"**/*.{md,mdx} \" --write",
-    "lint:ci": "yarn lint --format junit -o results/eslint/result.xml",
+    "lint:ci": "npm run lint -- --format junit -o results/eslint/result.xml",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:run:ci": "cypress run --browser chrome --reporter junit --reporter-options 'mochaFile=results/cypress/result.xml'",
@@ -73,7 +73,7 @@
   },
   "homepage": "https://aldisameriks.photos",
   "bugs": {
-    "url": "https://github.com/aldis-ameriks/photo-portfolio/issues"
+    "url": "https://github.com/aldis-ameriks/photography-portfolio/issues"
   },
   "keywords": [
     "gatsby",
@@ -83,7 +83,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aldis-ameriks/photo-portfolio.git"
+    "url": "git+https://github.com/aldis-ameriks/photography-portfolio.git"
   },
   "prettier": {
     "trailingComma": "es5",
