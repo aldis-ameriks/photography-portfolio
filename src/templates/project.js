@@ -101,7 +101,7 @@ class Project extends Component {
           date={project.date}
           title={project.title}
           areas={project.areas}
-          text={postNode.code.body}
+          text={postNode.body}
         />
 
         <BG>
@@ -176,9 +176,7 @@ export const pageQuery = graphql`
       }
     }
     project: mdx(fields: { slug: { eq: $slug } }) {
-      code {
-        body
-      }
+      body
       excerpt
       parent {
         ... on File {
