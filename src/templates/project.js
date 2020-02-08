@@ -53,13 +53,11 @@ class Project extends Component {
   state = {
     lightbox: false,
     // eslint-disable-next-line react/destructuring-assignment
-    photos: this.props.data.images.edges.map(image =>
-      Object.assign({
-        srcSet: image.node.childImageSharp.fluid.srcSet,
-        src: image.node.childImageSharp.fixed.src,
-        thumbnail: image.node.childImageSharp.fixed.src,
-      })
-    ),
+    photos: this.props.data.images.edges.map(image => ({
+      srcSet: image.node.childImageSharp.fluid.srcSet,
+      src: image.node.childImageSharp.fixed.src,
+      thumbnail: image.node.childImageSharp.fixed.src,
+    })),
   }
 
   gotoPrevLightboxImage() {
