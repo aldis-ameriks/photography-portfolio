@@ -1,4 +1,4 @@
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { animated, config, useSpring } from 'react-spring'
