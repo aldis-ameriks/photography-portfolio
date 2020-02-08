@@ -94,12 +94,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,json,css,md,mdx}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.{js,jsx}": [
-      "eslint --fix --ext .js,.jsx --ignore-path .gitignore",
-      "git add"
+      "eslint --fix --ext .js,.jsx --ignore-path .gitignore"
     ]
   }
 }
