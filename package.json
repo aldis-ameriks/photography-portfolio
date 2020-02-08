@@ -4,20 +4,16 @@
   "version": "1.0.0",
   "author": "Aldis Ameriks",
   "scripts": {
-    "develop": "gatsby develop",
     "dev": "gatsby develop -o",
+    "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
-    "format": "prettier \"**/*.{md,mdx} \" --write",
-    "lint:ci": "npm run lint -- --format junit -o results/eslint/result.xml",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:run:ci": "cypress run --browser chrome --reporter junit --reporter-options 'mochaFile=results/cypress/result.xml'",
     "test:e2e:dev": "cross-env CYPRESS_SUPPORT=y start-server-and-test dev http://localhost:8000 cy:open",
-    "test:e2e:run": "cross-env CYPRESS_SUPPORT=y start-server-and-test develop http://localhost:8000 cy:run",
-    "test:e2e:ci": "cross-env CYPRESS_SUPPORT=y start-server-and-test develop http://localhost:8000 cy:run:ci"
+    "test:e2e:run": "cross-env CYPRESS_SUPPORT=y start-server-and-test develop http://localhost:8000 cy:run"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.0.23",
