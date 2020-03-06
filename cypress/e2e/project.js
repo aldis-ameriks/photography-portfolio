@@ -7,7 +7,7 @@ describe('project', () => {
   })
 
   it('should contain title, date, tags', () => {
-    cy.visit('/forest')
+    cy.visit('/forest/')
       .assertRoute('/forest/')
       .findByText('Forest')
       .findByText('07.04.2019')
