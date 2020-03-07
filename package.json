@@ -16,7 +16,7 @@
     "test:e2e:run": "cross-env CYPRESS_SUPPORT=y start-server-and-test start http://localhost:8000 cy:run"
   },
   "dependencies": {
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.8.7",
     "@mdx-js/mdx": "^1.5.7",
     "@mdx-js/react": "^1.5.7",
     "babel-plugin-styled-components": "^1.10.7",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^5.3.0",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.2",
     "cypress": "^4.1.0",
     "eslint": "^6.8.0",
