@@ -65,7 +65,7 @@
     "gatsby-cypress": "^0.3.1",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.4",
     "start-server-and-test": "^1.10.11"
   },
   "homepage": "https://aldisameriks.photos",
