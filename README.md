@@ -18,3 +18,7 @@ https://aldisameriks.photos
 <p align="center">
   <img src="./lighthouse.png" width="749" height="136" />
 </p>
+
+<p align="center">
+  <img src="./screenshot.png" />
+</p>
