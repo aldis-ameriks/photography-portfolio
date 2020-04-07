@@ -13,7 +13,11 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:e2e:dev": "cross-env CYPRESS_SUPPORT=y start-server-and-test dev http://localhost:8000 cy:open",
-    "test:e2e:run": "cross-env CYPRESS_SUPPORT=y start-server-and-test start http://localhost:8000 cy:run"
+    "test:e2e:run": "cross-env CYPRESS_SUPPORT=y start-server-and-test start http://localhost:8000 cy:run",
+    "docker:build": "docker build -t docker.pkg.github.com/photography-portfolio/photography-portfolio .",
+    "docker:push": "docker push docker.pkg.github.com/photography-portfolio/photography-portfolio",
+    "docker:build:push": "npm run docker:build && npm run docker:push",
+    "docker:run": "docker run -p 8000:8000 --rm docker.pkg.github.com/photography-portfolio/photography-portfolio"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",

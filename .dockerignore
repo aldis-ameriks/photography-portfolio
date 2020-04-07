@@ -1,0 +1,9 @@
+*
+!nginx/
+!src/
+!config/
+!content/
+!static/
+!*.js
+!package.json
+!package-lock.json
