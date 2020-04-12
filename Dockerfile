@@ -22,4 +22,4 @@ USER nginx
 
 EXPOSE 8000
 
-HEALTHCHECK CMD [ "wget", "-q", "localhost:8000" ]
+HEALTHCHECK --interval=30s --timeout=5s CMD wget --quiet --tries=1 --spider http://127.0.0.1:8000 || exit 1
