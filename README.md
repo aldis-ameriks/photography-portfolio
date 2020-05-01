@@ -16,7 +16,7 @@ https://aldisameriks.photos
 - PWA 💣
 
 <p align="center">
-  <img src="./lighthouse.png" width="749" height="136" />
+  <img src="./lighthouse.png" width="699" height="247" />
 </p>
 
 <p align="center">
