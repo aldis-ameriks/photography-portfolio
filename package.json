@@ -69,7 +69,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^1.19.1",
-    "start-server-and-test": "^1.11.1"
+    "start-server-and-test": "^1.11.2"
   },
   "homepage": "https://aldisameriks.photos",
   "bugs": {
