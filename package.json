@@ -20,7 +20,7 @@
     "docker:run": "docker run -p 8000:8000 --rm docker.pkg.github.com/aldis-ameriks/photography-portfolio/photography-portfolio"
   },
   "dependencies": {
-    "@babel/core": "^7.11.0",
+    "@babel/core": "^7.11.1",
     "@mdx-js/mdx": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
     "babel-plugin-styled-components": "^1.11.1",
