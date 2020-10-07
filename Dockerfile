@@ -1,5 +1,4 @@
-FROM node:alpine as builder
-RUN apk add --no-cache --virtual .gyp python make g++
+FROM node:12-buster as builder
 
 WORKDIR /app
 ENV NODE_ENV=production
