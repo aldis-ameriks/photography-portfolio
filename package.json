@@ -40,7 +40,7 @@
     "gatsby-source-filesystem": "^2.3.34",
     "gatsby-transformer-sharp": "^2.5.17",
     "lodash": "^4.17.20",
-    "polished": "^4.0.1",
+    "polished": "^4.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
