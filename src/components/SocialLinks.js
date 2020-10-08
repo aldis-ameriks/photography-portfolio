@@ -11,7 +11,7 @@ const SocialLinkWrapper = styled(animated.div)`
     margin: 0.5rem;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.s}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.s}) {
     margin-top: 5rem;
   }
 `

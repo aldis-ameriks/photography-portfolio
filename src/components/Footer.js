@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Content = styled.footer`
-  color: ${props => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
   text-align: center;
   font-size: 0.85rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background: ${props => props.theme.colors.bg};
+  background: ${(props) => props.theme.colors.bg};
 `
 
 const Footer = () => (

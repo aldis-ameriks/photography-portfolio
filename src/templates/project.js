@@ -11,25 +11,25 @@ import ProjectHeader from '../components/ProjectHeader'
 import SEO from '../components/SEO'
 
 const BG = styled.div`
-  background-color: ${props => props.theme.colors.bg};
+  background-color: ${(props) => props.theme.colors.bg};
   position: relative;
   padding: 2rem 0 0 0;
 `
 
 const OuterWrapper = styled.div`
-  padding: 0 ${props => props.theme.contentPadding};
+  padding: 0 ${(props) => props.theme.contentPadding};
   margin: -5rem auto 0 auto;
 
   column-count: 1;
   column-gap: 15px;
 
-  @media (min-width: ${props => props.theme.breakpoints.xs}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.xs}) {
     column-count: 2;
   }
-  @media (min-width: ${props => props.theme.breakpoints.m}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     column-count: 3;
   }
-  @media (min-width: ${props => props.theme.breakpoints.l}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
     column-count: 4;
   }
 `
@@ -53,7 +53,7 @@ class Project extends Component {
   state = {
     lightbox: false,
     // eslint-disable-next-line react/destructuring-assignment
-    photos: this.props.data.images.edges.map(image => ({
+    photos: this.props.data.images.edges.map((image) => ({
       srcSet: image.node.childImageSharp.fluid.srcSet,
       src: image.node.childImageSharp.fixed.src,
       thumbnail: image.node.childImageSharp.fixed.src,
@@ -107,7 +107,7 @@ class Project extends Component {
         <BG>
           <OuterWrapper>
             {images.map((image, i) => (
-              <InnerWrapper key={image.node.childImageSharp.fluid.src} onClick={e => this.openLightbox(i, e)}>
+              <InnerWrapper key={image.node.childImageSharp.fluid.src} onClick={(e) => this.openLightbox(i, e)}>
                 <Img alt={image.node.name} fluid={image.node.childImageSharp.fluid} />
               </InnerWrapper>
             ))}
@@ -123,7 +123,7 @@ class Project extends Component {
             onClickPrev={() => this.gotoPrevLightboxImage()}
             onClickNext={() => this.gotoNextLightboxImage()}
             onClose={() => this.closeLightbox()}
-            onClickThumbnail={p => this.setState({ photo: p })}
+            onClickThumbnail={(p) => this.setState({ photo: p })}
           />
         </BG>
       </Layout>

@@ -13,9 +13,9 @@ const Wrapper = styled.div`
 const Content = styled.div`
   margin: 0 auto;
   width: 100%;
-  max-width: ${props => props.theme.maxWidths.general};
+  max-width: ${(props) => props.theme.maxWidths.general};
   padding: 0 1.0875rem 5rem 1.0875rem;
-  color: ${props => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.secondary};
 `
 
 const Details = styled.div`
@@ -24,7 +24,7 @@ const Details = styled.div`
   text-align: center;
 
   h1 {
-    color: ${props => props.theme.colors.color};
+    color: ${(props) => props.theme.colors.color};
   }
 `
 

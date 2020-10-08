@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import config from '../../config/site'
 
-const Head = props => {
+const Head = (props) => {
   const { postNode, postPath, postSEO, data } = props
   let title
   let description
@@ -169,7 +169,7 @@ const Head = props => {
   )
 }
 
-const SEO = props => <StaticQuery query={querySEO} render={data => <Head {...props} data={data} />} />
+const SEO = (props) => <StaticQuery query={querySEO} render={(data) => <Head {...props} data={data} />} />
 
 export default SEO
 

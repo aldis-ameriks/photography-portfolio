@@ -10,7 +10,7 @@ import Layout from '../components/Layout'
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(${props => props.theme.gridColumns}, 1fr);
+  grid-template-columns: repeat(${(props) => props.theme.gridColumns}, 1fr);
   grid-gap: 50px;
 
   @media (max-width: 768px) {
@@ -24,7 +24,7 @@ const Grid = styled.div`
 `
 
 const BG = styled.div`
-  background-color: ${props => props.theme.colors.bg};
+  background-color: ${(props) => props.theme.colors.bg};
 `
 
 const Index = ({
