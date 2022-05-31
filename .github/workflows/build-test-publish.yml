@@ -43,12 +43,12 @@ jobs:
           start: npm start
           wait-on: 'http://localhost:8000'
           wait-on-timeout: 180
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: cypress-videos
