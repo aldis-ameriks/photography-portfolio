@@ -1,21 +1,30 @@
-const config = require('./config/site')
+import { GatsbyConfig } from 'gatsby'
+
+import { config } from './config/site'
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
-module.exports = {
+const gatsbyConfig: GatsbyConfig = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
+    siteUrl: config.siteUrl + pathPrefix
   },
+  graphqlTypegen: true,
   plugins: [
+    {
+      resolve: 'gatsby-plugin-schema-export',
+      options: {
+        dest: 'src/schema.graphql'
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'projects',
-        path: `${__dirname}/content/projects`,
-      },
+        path: `${__dirname}/content/projects`
+      }
     },
     {
       resolve: 'gatsby-plugin-mdx',
@@ -26,17 +35,17 @@ module.exports = {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
-              rel: 'nofollow noopener noreferrer',
-            },
-          },
-        ],
-      },
+              rel: 'nofollow noopener noreferrer'
+            }
+          }
+        ]
+      }
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: config.googleAnalyticsID,
-      },
+        trackingId: config.googleAnalyticsID
+      }
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -53,9 +62,11 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'standalone',
-        icon: 'src/favicon.png',
-      },
+        icon: 'src/favicon.png'
+      }
     },
-    'gatsby-plugin-offline',
-  ],
+    'gatsby-plugin-offline'
+  ]
 }
+
+export default gatsbyConfig

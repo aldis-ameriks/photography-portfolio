@@ -1,5 +1,4 @@
-import { graphql } from 'gatsby'
-import PropTypes from 'prop-types'
+import { graphql, PageProps } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -29,9 +28,9 @@ const BG = styled.div`
 
 const Index = ({
   data: {
-    allMdx: { edges },
-  },
-}) => (
+    allMdx: { edges }
+  }
+}: PageProps<Queries.HomeQuery>): JSX.Element => (
   <Layout>
     <Header />
     <BG>
@@ -56,16 +55,8 @@ const Index = ({
 
 export default Index
 
-Index.propTypes = {
-  data: PropTypes.shape({
-    allMdx: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
-    }),
-  }).isRequired,
-}
-
 export const pageQuery = graphql`
-  query HomeQuery {
+  query Home {
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components'
@@ -7,6 +6,7 @@ import { useTextAnimation } from '../styles/animation'
 
 const SocialLinkWrapper = styled(animated.div)`
   margin-top: 1rem;
+
   & > * {
     margin: 0.5rem;
   }
@@ -37,7 +37,7 @@ const SocialLink = styled.a`
   }
 `
 
-const SocialLinks = ({ delay }) => {
+const SocialLinks = ({ delay = 0 }: { delay?: number }): JSX.Element => {
   const animationProps = useTextAnimation(delay)
 
   return (
@@ -56,14 +56,6 @@ const SocialLinks = ({ delay }) => {
       </SocialLink>
     </SocialLinkWrapper>
   )
-}
-
-SocialLinks.propTypes = {
-  delay: PropTypes.number,
-}
-
-SocialLinks.defaultProps = {
-  delay: 0,
 }
 
 export default SocialLinks

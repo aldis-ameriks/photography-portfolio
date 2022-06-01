@@ -1,4 +1,4 @@
-module.exports = {
+export const config = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
 
   siteTitle: 'AA Photography', // Navigation and Site Title
@@ -26,4 +26,4 @@ module.exports = {
   name: 'Aldis Ameriks',
   location: 'Latvia',
   socialMedia: [],
-}
+} as any

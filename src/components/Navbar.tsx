@@ -30,7 +30,7 @@ const Image = styled.img`
   }
 `
 
-const Navbar = () => (
+const Navbar = (): JSX.Element => (
   <NavbarStyled>
     <Link to="/">
       <Image src="/logos/AA_black.png" width="50" data-info="home" alt="Go to home" aria-label="Go to home" />

@@ -10,7 +10,7 @@ const Content = styled.footer`
   background: ${(props) => props.theme.colors.bg};
 `
 
-const Footer = () => (
+const Footer = (): JSX.Element => (
   <Content>
     <a href="https://github.com/aldis-ameriks/photography-portfolio" rel="noreferrer">
       code

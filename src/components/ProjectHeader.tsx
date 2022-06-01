@@ -1,5 +1,4 @@
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { animated, config, useSpring } from 'react-spring'
 import styled from 'styled-components'
@@ -33,12 +32,22 @@ const Text = styled.div`
   margin: 2rem auto 2rem auto;
 `
 
-const ProjectHeader = ({ title, date, areas, text }) => {
+const ProjectHeader = ({
+  title,
+  date,
+  areas,
+  text
+}: {
+  title: string
+  text: string
+  date?: string
+  areas?: string[]
+}): JSX.Element => {
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
     from: { opacity: 0, transform: 'translate3d(0, 30px, 0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' }
   })
   const contentProps = useSpring({ config: config.slow, delay: 600, from: { opacity: 0 }, to: { opacity: 1 } })
 
@@ -73,15 +82,3 @@ const ProjectHeader = ({ title, date, areas, text }) => {
 }
 
 export default ProjectHeader
-
-ProjectHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  date: PropTypes.string,
-  areas: PropTypes.array,
-}
-
-ProjectHeader.defaultProps = {
-  areas: [],
-  date: null,
-}

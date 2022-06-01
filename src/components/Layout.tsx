@@ -1,6 +1,5 @@
 /* eslint no-unused-expressions: off */
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 import theme from '../../config/theme'
@@ -11,11 +10,10 @@ import SEO from './SEO'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-  
   html {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
   }
-  
+
   .gatsby-resp-image-wrapper {
     margin: 2.75rem 0;
   }
@@ -31,7 +29,7 @@ const AbsoluteWrapper = styled.main`
   height: 100%;
 `
 
-const Layout = ({ children, customSEO }) => (
+const Layout = ({ children, customSEO = false }: { children: React.ReactNode; customSEO?: boolean }): JSX.Element => (
   <ThemeProvider theme={theme}>
     <>
       {!customSEO && <SEO />}
@@ -47,12 +45,3 @@ const Layout = ({ children, customSEO }) => (
 )
 
 export default Layout
-
-Layout.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-  customSEO: PropTypes.bool,
-}
-
-Layout.defaultProps = {
-  customSEO: false,
-}

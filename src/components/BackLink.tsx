@@ -22,7 +22,7 @@ const Name = styled(animated.h4)`
   color: ${(props) => props.theme.colors.color};
 `
 
-const BackLink = () => (
+const BackLink = (): JSX.Element => (
   <Back to="/">
     <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
     <Name>Home</Name>

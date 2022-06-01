@@ -1,10 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { useSpring, animated, config } from 'react-spring'
-import { rgba } from 'polished'
-import Img from 'gatsby-image'
 import { Link } from 'gatsby'
+import Img, { FluidObject } from 'gatsby-image'
+import { rgba } from 'polished'
+import React from 'react'
+import { animated, config, useSpring } from 'react-spring'
+import styled from 'styled-components'
 
 const CardItem = styled(Link)`
   min-height: 500px;
@@ -31,6 +30,7 @@ const Cover = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
+
   div {
     overflow: hidden;
   }
@@ -63,12 +63,26 @@ const Name = styled.h1`
   margin-top: 0;
 `
 
-const Card = ({ path, cover, date, areas, title, delay }) => {
+const Card = ({
+  path,
+  cover,
+  date,
+  areas,
+  title,
+  delay
+}: {
+  path: string
+  cover: FluidObject
+  title: string
+  delay: number
+  date?: string
+  areas?: readonly string[] | null
+}): JSX.Element => {
   const springProps = useSpring({
     config: config.slow,
     delay: 100 * delay,
     from: { opacity: 0, transform: 'translate3d(0, 30px, 0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' }
   })
 
   return (
@@ -97,17 +111,3 @@ const Card = ({ path, cover, date, areas, title, delay }) => {
 }
 
 export default Card
-
-Card.propTypes = {
-  path: PropTypes.string.isRequired,
-  cover: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
-  delay: PropTypes.number.isRequired,
-  date: PropTypes.string,
-  areas: PropTypes.array,
-}
-
-Card.defaultProps = {
-  areas: [],
-  date: null,
-}
