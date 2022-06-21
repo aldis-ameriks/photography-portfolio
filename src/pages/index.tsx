@@ -26,11 +26,11 @@ const BG = styled.div`
   background-color: ${(props) => props.theme.colors.bg};
 `
 
-const Index = ({
+const Index: React.FC<PageProps<Queries.HomeQuery>> = ({
   data: {
     allMdx: { edges }
   }
-}: PageProps<Queries.HomeQuery>): JSX.Element => (
+}) => (
   <Layout>
     <Header />
     <BG>
@@ -41,7 +41,7 @@ const Index = ({
               delay={index}
               date={project.node.frontmatter.date}
               title={project.node.frontmatter.title}
-              cover={project.node.frontmatter.cover.childImageSharp.fluid}
+              cover={project.node.frontmatter.cover.childImageSharp.gatsbyImageData}
               path={project.node.fields.slug}
               areas={project.node.frontmatter.areas}
               key={project.node.fields.slug}
@@ -66,9 +66,7 @@ export const pageQuery = graphql`
           frontmatter {
             cover {
               childImageSharp {
-                fluid(maxWidth: 760, quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(width: 760, quality: 90, layout: CONSTRAINED, placeholder: BLURRED)
               }
             }
             date(formatString: "DD.MM.YYYY")

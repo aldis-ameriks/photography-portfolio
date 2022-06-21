@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components'
@@ -37,7 +38,7 @@ const texts = [
   'Have feedback, or want to ask something? <a href="mailto:aldis.ameriks@gmail.com">Drop me an email ✉️</a>'
 ]
 
-const AnimatedText = ({ text, delay }: { text: string; delay: number }): JSX.Element => {
+const AnimatedText: React.FC<{ text: string; delay: number }> = ({ text, delay }) => {
   const animationProps = useTextAnimation(delay)
   return (
     <animated.div style={animationProps}>
@@ -53,7 +54,7 @@ const About = (): JSX.Element => (
       <BackLink />
       <ContentWrapper>
         <Avatar>
-          <img src="/me.jpg" alt="" />
+          <StaticImage src="../../static/me.jpg" alt="Avatar" placeholder="blurred" />
         </Avatar>
         {texts.map((text, i) => (
           <AnimatedText key={text} delay={i} text={text} />

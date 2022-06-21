@@ -1,13 +1,12 @@
 import { graphql, PageProps } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, getSrc, getSrcSet } from 'gatsby-plugin-image'
 import React, { Component } from 'react'
 import Lightbox from 'react-images'
 import styled from 'styled-components'
-
-import { config } from '../config/site'
 import Layout from '../components/Layout'
 import ProjectHeader from '../components/ProjectHeader'
 import SEO from '../components/SEO'
+import { config } from '../config/site'
 
 const BG = styled.div`
   background-color: ${(props) => props.theme.colors.bg};
@@ -54,9 +53,9 @@ class Project extends Component<PageProps<Queries.ProjectQuery, { slug: string }
     lightbox: false,
     // eslint-disable-next-line react/destructuring-assignment
     photos: this.props.data.images.edges.map((image) => ({
-      srcSet: image.node.childImageSharp.fluid.srcSet,
-      src: image.node.childImageSharp.fixed.src,
-      thumbnail: image.node.childImageSharp.fixed.src
+      srcSet: getSrcSet(image.node.childImageSharp.fluid),
+      src: getSrc(image.node.childImageSharp.fixed),
+      thumbnail: getSrc(image.node.childImageSharp.fixed)
     }))
   }
 
@@ -107,8 +106,8 @@ class Project extends Component<PageProps<Queries.ProjectQuery, { slug: string }
         <BG>
           <OuterWrapper>
             {images.map((image, i) => (
-              <InnerWrapper key={image.node.childImageSharp.fluid.src} onClick={(e) => this.openLightbox(i, e)}>
-                <Img alt={image.node.name} fluid={image.node.childImageSharp.fluid} />
+              <InnerWrapper key={i} onClick={(e) => this.openLightbox(i, e)}>
+                <GatsbyImage alt={image.node.name} image={image.node.childImageSharp.fluid} />
               </InnerWrapper>
             ))}
           </OuterWrapper>
@@ -146,12 +145,8 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            fluid(maxWidth: 1600, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-            fixed(width: 100, height: 100) {
-              src
-            }
+            fluid: gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+            fixed: gatsbyImageData(layout: FIXED, width: 100, height: 100, placeholder: BLURRED)
           }
         }
       }

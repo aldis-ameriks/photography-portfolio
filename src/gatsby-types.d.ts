@@ -1125,6 +1125,25 @@ type GatsbyImageDataQueryOperatorInput = {
   readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']>>>;
 };
 
+type GatsbyImageFormat =
+  | 'auto'
+  | 'avif'
+  | 'jpg'
+  | 'NO_CHANGE'
+  | 'png'
+  | 'webp';
+
+type GatsbyImageLayout =
+  | 'constrained'
+  | 'fixed'
+  | 'fullWidth';
+
+type GatsbyImagePlaceholder =
+  | 'blurred'
+  | 'dominantColor'
+  | 'none'
+  | 'tracedSVG';
+
 type HeadingsMdx =
   | 'h1'
   | 'h2'
@@ -3541,18 +3560,13 @@ type SEOQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SEOQuery = { readonly site: { readonly buildTime: string | null } | null };
 
-type HomeQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HomeQuery = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: { readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string, readonly areas: ReadonlyArray<string | null> | null, readonly cover: { readonly childImageSharp: { readonly fluid: { readonly base64: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null } | null } | null } | null } }> } };
-
 type ProjectQueryVariables = Exact<{
   slug: Scalars['String'];
   absolutePathRegex: Scalars['String'];
 }>;
 
 
-type ProjectQuery = { readonly images: { readonly edges: ReadonlyArray<{ readonly node: { readonly name: string, readonly childImageSharp: { readonly fluid: { readonly base64: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string } | null, readonly fixed: { readonly src: string } | null } | null } }> }, readonly project: { readonly body: string, readonly excerpt: string, readonly parent: { readonly mtime: string, readonly birthTime: string } | {} | null, readonly frontmatter: { readonly date: string | null, readonly title: string, readonly areas: ReadonlyArray<string | null> | null, readonly cover: { readonly childImageSharp: { readonly resize: { readonly src: string | null } | null } | null } | null } | null } | null };
+type ProjectQuery = { readonly images: { readonly edges: ReadonlyArray<{ readonly node: { readonly name: string, readonly childImageSharp: { readonly fluid: import('gatsby-plugin-image').IGatsbyImageData, readonly fixed: import('gatsby-plugin-image').IGatsbyImageData } | null } }> }, readonly project: { readonly body: string, readonly excerpt: string, readonly parent: { readonly mtime: string, readonly birthTime: string } | {} | null, readonly frontmatter: { readonly date: string | null, readonly title: string, readonly areas: ReadonlyArray<string | null> | null, readonly cover: { readonly childImageSharp: { readonly resize: { readonly src: string | null } | null } | null } | null } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -3579,6 +3593,11 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 type GatsbyImageSharpFluid_noBase64Fragment = { readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly sizes: string };
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
+
+type HomeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HomeQuery = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: { readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string, readonly areas: ReadonlyArray<string | null> | null, readonly cover: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } }> } };
 
 type ProjectNodesQueryVariables = Exact<{ [key: string]: never; }>;
 

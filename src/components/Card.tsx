@@ -1,5 +1,5 @@
 import { Link } from 'gatsby'
-import Img, { FluidObject } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { rgba } from 'polished'
 import React from 'react'
 import { animated, config, useSpring } from 'react-spring'
@@ -72,7 +72,7 @@ const Card = ({
   delay
 }: {
   path: string
-  cover: FluidObject
+  cover: any
   title: string
   delay: number
   date?: string
@@ -89,7 +89,7 @@ const Card = ({
     <animated.div style={springProps}>
       <CardItem to={path}>
         <Cover>
-          <Img fluid={cover} />
+          <GatsbyImage image={cover} alt={`Cover image for ${title}`} />
         </Cover>
         <Content>
           <Name>{title}</Name>
