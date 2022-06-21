@@ -52,6 +52,8 @@
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-source-filesystem": "4.15.0",
     "gatsby-transformer-sharp": "4.15.0",
+    "jquery": "3.6.0",
+    "justifiedGallery": "3.8.1",
     "lodash": "4.17.21",
     "polished": "4.2.2",
     "react": "18.1.0",

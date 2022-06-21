@@ -6,9 +6,8 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 import ProjectHeader from '../components/ProjectHeader'
 import SEO from '../components/SEO'
-import { config } from '../config/site'
 
-const BG = styled.div`
+const Background = styled.div`
   background-color: ${(props) => props.theme.colors.bg};
   position: relative;
   padding: 2rem 0 0 0;
@@ -48,6 +47,8 @@ const InnerWrapper = styled.div`
 `
 
 class Project extends Component<PageProps<Queries.ProjectQuery, { slug: string }>> {
+  img = null
+
   state = {
     photo: undefined,
     lightbox: false,
@@ -94,16 +95,9 @@ class Project extends Component<PageProps<Queries.ProjectQuery, { slug: string }
     return (
       <Layout customSEO>
         <SEO postPath={slug} postNode={postNode} postSEO />
-        <ProjectHeader
-          avatar={config.avatar}
-          name={config.name}
-          date={project.date}
-          title={project.title}
-          areas={project.areas}
-          text={postNode.body}
-        />
+        <ProjectHeader date={project.date} title={project.title} areas={project.areas} text={postNode.body} />
 
-        <BG>
+        <Background>
           <OuterWrapper>
             {images.map((image, i) => (
               <InnerWrapper key={i} onClick={(e) => this.openLightbox(i, e)}>
@@ -124,7 +118,7 @@ class Project extends Component<PageProps<Queries.ProjectQuery, { slug: string }
             onClose={() => this.closeLightbox()}
             onClickThumbnail={(p) => this.setState({ photo: p })}
           />
-        </BG>
+        </Background>
       </Layout>
     )
   }

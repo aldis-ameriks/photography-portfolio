@@ -9,8 +9,8 @@ const Transition = (props) => {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: { duration: 100 },
-  }as any)
+    config: { duration: 100 }
+  } as any)
 
   return transitions.map(({ item, props: styles, key }) => (
     <animated.div key={key} style={{ ...styles, position: 'relative' }}>

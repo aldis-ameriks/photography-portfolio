@@ -22,36 +22,45 @@ const Grid = styled.div`
   }
 `
 
-const BG = styled.div`
+const Background = styled.div`
   background-color: ${(props) => props.theme.colors.bg};
 `
 
-const Index: React.FC<PageProps<Queries.HomeQuery>> = ({
-  data: {
-    allMdx: { edges }
-  }
-}) => (
-  <Layout>
-    <Header />
-    <BG>
-      <Content>
-        <Grid>
-          {edges.map((project, index) => (
-            <Card
-              delay={index}
-              date={project.node.frontmatter.date}
-              title={project.node.frontmatter.title}
-              cover={project.node.frontmatter.cover.childImageSharp.gatsbyImageData}
-              path={project.node.fields.slug}
-              areas={project.node.frontmatter.areas}
-              key={project.node.fields.slug}
-            />
-          ))}
-        </Grid>
-      </Content>
-    </BG>
-  </Layout>
-)
+const ClientSideOnlyLazy = React.lazy(() => import('../components/Gallery'))
+
+const Index: React.FC<PageProps<Queries.HomeQuery>> = ({ data }) => {
+  const isSSR = typeof window === 'undefined'
+
+  return (
+    <Layout>
+      <Background>
+        <Content>
+          {!isSSR && data.allFile.nodes.length > 0 && (
+            <React.Suspense fallback={<div style={{ height: '100vh' }} />}>
+              <ClientSideOnlyLazy images={data.allFile.nodes.map((node) => node.childImageSharp)} />
+            </React.Suspense>
+          )}
+          {/*{isSSR && <div style={{ height: '100vh' }} />}*/}
+
+          <Header />
+          <Grid>
+            {data.allMdx.edges.map((project, index) => (
+              <Card
+                delay={index}
+                date={project.node.frontmatter.date}
+                title={project.node.frontmatter.title}
+                cover={project.node.frontmatter.cover.childImageSharp.gatsbyImageData}
+                path={project.node.fields.slug}
+                areas={project.node.frontmatter.areas}
+                key={project.node.fields.slug}
+              />
+            ))}
+          </Grid>
+        </Content>
+      </Background>
+    </Layout>
+  )
+}
 
 export default Index
 
@@ -73,6 +82,15 @@ export const pageQuery = graphql`
             title
             areas
           }
+        }
+      }
+    }
+
+    allFile(filter: { sourceInstanceName: { eq: "gallery" } }) {
+      nodes {
+        childImageSharp {
+          fluid: gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+          fixed: gatsbyImageData(layout: FIXED, width: 100, height: 100, placeholder: BLURRED)
         }
       }
     }

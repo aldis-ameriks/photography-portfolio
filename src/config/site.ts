@@ -11,10 +11,10 @@ export const config = {
   siteDescription: 'Aldis Ameriks - Personal photography portfolio',
   author: 'Aldis Ameriks', // Author for schema.org JSONLD
 
-  // siteFBAppID: '123456789', // Facebook App ID - Optional
-  // userTwitter: '', // Twitter Username
-  // ogSiteName: 'emilia', // Facebook Site Name
-  ogLanguage: 'en_US', // og:language
+  siteFBAppID: '', // Facebook App ID - Optional
+  userTwitter: '', // Twitter Username
+  ogSiteName: '', // Facebook Site Name
+  ogLanguage: 'npen_US', // og:language
   googleAnalyticsID: 'UA-134925752-3',
 
   // Manifest and Progress color
@@ -25,5 +25,5 @@ export const config = {
   avatar: '/logos/AA_black.png',
   name: 'Aldis Ameriks',
   location: 'Latvia',
-  socialMedia: [],
-} as any
+  socialMedia: []
+}

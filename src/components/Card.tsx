@@ -1,5 +1,5 @@
 import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { rgba } from 'polished'
 import React from 'react'
 import { animated, config, useSpring } from 'react-spring'
@@ -9,7 +9,7 @@ const CardItem = styled(Link)`
   min-height: 500px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -63,21 +63,16 @@ const Name = styled.h1`
   margin-top: 0;
 `
 
-const Card = ({
-  path,
-  cover,
-  date,
-  areas,
-  title,
-  delay
-}: {
+type Props = {
   path: string
-  cover: any
+  cover: IGatsbyImageData
   title: string
   delay: number
   date?: string
   areas?: readonly string[] | null
-}): JSX.Element => {
+}
+
+const Card: React.FC<Props> = ({ path, cover, date, areas, title, delay }) => {
   const springProps = useSpring({
     config: config.slow,
     delay: 100 * delay,

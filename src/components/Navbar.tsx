@@ -5,7 +5,7 @@ import theme from '../config/theme'
 
 const NavbarStyled = styled.div`
   width: 100%;
-  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.25);
   padding: 1rem;
   margin-bottom: 2rem;
 `
@@ -25,6 +25,7 @@ const Image = styled.img`
   top: 11px;
   cursor: pointer;
   position: absolute;
+
   @media (min-width: ${theme.breakpoints.m}) {
     top: 14px;
   }

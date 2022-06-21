@@ -10,6 +10,7 @@ import SEO from './SEO'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+  
   html {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
   }

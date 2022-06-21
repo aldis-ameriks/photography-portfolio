@@ -28,6 +28,13 @@ const gatsbyConfig: GatsbyConfig = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'gallery',
+        path: `${__dirname}/content/gallery`
+      }
+    },
+    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],

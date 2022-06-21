@@ -41,7 +41,7 @@ const ProjectHeader = ({
   title: string
   text: string
   date?: string
-  areas?: string[]
+  areas?: readonly string[]
 }): JSX.Element => {
   const titleProps = useSpring({
     config: config.slow,

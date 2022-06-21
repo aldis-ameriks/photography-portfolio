@@ -13,6 +13,7 @@ const Content = styled.div`
   color: ${(props) => props.theme.colors.secondary};
   text-align: center;
   height: 200px;
+
   @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     height: 500px;
   }

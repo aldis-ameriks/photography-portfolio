@@ -3597,7 +3597,7 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type HomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomeQuery = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: { readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string, readonly areas: ReadonlyArray<string | null> | null, readonly cover: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } }> } };
+type HomeQuery = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: { readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string, readonly areas: ReadonlyArray<string | null> | null, readonly cover: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } }> }, readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childImageSharp: { readonly fluid: import('gatsby-plugin-image').IGatsbyImageData, readonly fixed: import('gatsby-plugin-image').IGatsbyImageData } | null }> } };
 
 type ProjectNodesQueryVariables = Exact<{ [key: string]: never; }>;
 
