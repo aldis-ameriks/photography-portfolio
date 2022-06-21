@@ -31,11 +31,13 @@ export const Gallery: React.FC<Props> = ({ images }) => {
 
   const photos = useMemo(
     () =>
-      images.map((image) => ({
-        srcSet: getSrcSet(image.fluid),
-        src: getSrc(image.fixed),
-        thumbnail: getSrc(image.fixed)
-      })),
+      images
+        .filter((image) => image?.fluid && image?.fixed)
+        .map((image) => ({
+          srcSet: getSrcSet(image.fluid),
+          src: getSrc(image.fixed),
+          thumbnail: getSrc(image.fixed)
+        })),
     [images]
   )
 
@@ -53,16 +55,18 @@ export const Gallery: React.FC<Props> = ({ images }) => {
 
   return (
     <Wrapper id="gallery" className="justified-gallery">
-      {images.map((image, i) => (
-        <ImageWrapper
-          key={i}
-          onClick={() => {
-            setPhoto(i)
-          }}
-        >
-          <img src={getSrc(image.fluid)} alt="Gallery image" />
-        </ImageWrapper>
-      ))}
+      {images
+        .filter((image) => image?.fluid && image?.fixed)
+        .map((image, i) => (
+          <ImageWrapper
+            key={i}
+            onClick={() => {
+              setPhoto(i)
+            }}
+          >
+            <img src={getSrc(image.fluid)} alt="Gallery image" />
+          </ImageWrapper>
+        ))}
 
       <Lightbox
         backdropClosesModal
