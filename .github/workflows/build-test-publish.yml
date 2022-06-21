@@ -43,6 +43,7 @@ jobs:
           start: npm start
           wait-on: 'http://localhost:8000'
           wait-on-timeout: 180
+          install-command: npm ci --legacy-peer-deps
       - uses: actions/upload-artifact@v2
         if: failure()
         with:
