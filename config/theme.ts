@@ -1,9 +1,10 @@
 // You can grab your own pattern here:
 // http://www.heropatterns.com/
 
-module.exports = {
+export default {
   bgPattern: ``,
   colors: {
+    white: 'white',
     bg: 'white',
     color: 'black',
     dark_bg: 'black',

@@ -4,6 +4,6 @@
 !config/
 !content/
 !static/
-!*.js
+!*.ts
 !package.json
 !package-lock.json

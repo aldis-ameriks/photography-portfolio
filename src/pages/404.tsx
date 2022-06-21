@@ -11,7 +11,7 @@ const ContentWrapper = styled.div`
   text-align: center;
 `
 
-const NotFound404 = () => (
+const NotFound404 = (): JSX.Element => (
   <Layout>
     <Header />
     <Content>

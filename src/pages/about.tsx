@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components'
@@ -35,10 +34,10 @@ const texts = [
   'Hello 👋',
   "My name is Aldis Ameriks, I'm from Latvia 🇱🇻",
   "I'm a software developer who also loves photography 📷",
-  'Have feedback, or want to ask something? <a href="mailto:aldis.ameriks@gmail.com">Drop me an email ✉️</a>',
+  'Have feedback, or want to ask something? <a href="mailto:aldis.ameriks@gmail.com">Drop me an email ✉️</a>'
 ]
 
-const AnimatedText = ({ text, delay }) => {
+const AnimatedText = ({ text, delay }: { text: string; delay: number }): JSX.Element => {
   const animationProps = useTextAnimation(delay)
   return (
     <animated.div style={animationProps}>
@@ -47,12 +46,7 @@ const AnimatedText = ({ text, delay }) => {
   )
 }
 
-AnimatedText.propTypes = {
-  text: PropTypes.string.isRequired,
-  delay: PropTypes.number.isRequired,
-}
-
-const About = () => (
+const About = (): JSX.Element => (
   <Layout>
     <Header />
     <Content>

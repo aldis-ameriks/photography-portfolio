@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,7 +23,7 @@ const Name = styled.h1`
   color: ${(props) => props.theme.colors.color};
 `
 
-const Header = ({ text }) => (
+const Header = ({ text }: { text?: string }): JSX.Element => (
   <Wrapper>
     {text && (
       <Content>
@@ -35,11 +34,3 @@ const Header = ({ text }) => (
 )
 
 export default Header
-
-Header.propTypes = {
-  text: PropTypes.string,
-}
-
-Header.defaultProps = {
-  text: null,
-}

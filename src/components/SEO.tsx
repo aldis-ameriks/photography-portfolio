@@ -1,11 +1,10 @@
 /* eslint-disable react/require-default-props */
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
-import config from '../../config/site'
+import { config } from '../../config/site'
 
-const Head = (props) => {
+const Head = (props: HeadProps & { data: Queries.SEOQuery }): JSX.Element => {
   const { postNode, postPath, postSEO, data } = props
   let title
   let description
@@ -43,27 +42,27 @@ const Head = (props) => {
     name: config.siteTitle,
     author: {
       '@type': 'Person',
-      name: config.author,
+      name: config.author
     },
     copyrightHolder: {
       '@type': 'Person',
-      name: config.author,
+      name: config.author
     },
     copyrightYear: '2018',
     creator: {
       '@type': 'Person',
-      name: config.author,
+      name: config.author
     },
     publisher: {
       '@type': 'Person',
-      name: config.author,
+      name: config.author
     },
     datePublished: '2019-01-07T10:30:00+01:00',
     dateModified: bt,
     image: {
       '@type': 'ImageObject',
-      url: image,
-    },
+      url: image
+    }
   }
 
   // Initial breadcrumb list
@@ -73,10 +72,10 @@ const Head = (props) => {
       '@type': 'ListItem',
       item: {
         '@id': homeURL,
-        name: 'Homepage',
+        name: 'Homepage'
       },
-      position: 1,
-    },
+      position: 1
+    }
   ]
 
   let schemaArticle = null
@@ -87,24 +86,24 @@ const Head = (props) => {
       '@type': 'Article',
       author: {
         '@type': 'Person',
-        name: config.author,
+        name: config.author
       },
       copyrightHolder: {
         '@type': 'Person',
-        name: config.author,
+        name: config.author
       },
       copyrightYear: postNode.parent.birthTime,
       creator: {
         '@type': 'Person',
-        name: config.author,
+        name: config.author
       },
       publisher: {
         '@type': 'Organization',
         name: config.author,
         logo: {
           '@type': 'ImageObject',
-          url: `${homeURL}${config.siteLogo}`,
-        },
+          url: `${homeURL}${config.siteLogo}`
+        }
       },
       datePublished: postNode.parent.birthTime,
       dateModified: postNode.parent.mtime,
@@ -115,18 +114,18 @@ const Head = (props) => {
       name: title,
       image: {
         '@type': 'ImageObject',
-        url: image,
+        url: image
       },
-      mainEntityOfPage: URL,
+      mainEntityOfPage: URL
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
       item: {
         '@id': URL,
-        name: title,
+        name: title
       },
-      position: 2,
+      position: 2
     })
   }
 
@@ -135,7 +134,7 @@ const Head = (props) => {
     '@type': 'BreadcrumbList',
     description: 'Breadcrumbs list',
     name: 'Breadcrumbs',
-    itemListElement,
+    itemListElement
   }
 
   return (
@@ -169,16 +168,13 @@ const Head = (props) => {
   )
 }
 
-const SEO = (props) => <StaticQuery query={querySEO} render={(data) => <Head {...props} data={data} />} />
+type HeadProps = { postSEO?: boolean; postPath?: string; postNode?: any }
+
+const SEO = (props: HeadProps): JSX.Element => (
+  <StaticQuery<Queries.SEOQuery> query={querySEO} render={(data) => <Head {...props} data={data} />} />
+)
 
 export default SEO
-
-Head.propTypes = {
-  postNode: PropTypes.object,
-  data: PropTypes.any.isRequired,
-  postPath: PropTypes.string,
-  postSEO: PropTypes.bool,
-}
 
 const querySEO = graphql`
   query SEO {

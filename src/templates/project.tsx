@@ -1,11 +1,10 @@
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Lightbox from 'react-images'
 import styled from 'styled-components'
 
-import config from '../../config/site'
+import { config } from '../../config/site'
 import Layout from '../components/Layout'
 import ProjectHeader from '../components/ProjectHeader'
 import SEO from '../components/SEO'
@@ -49,15 +48,16 @@ const InnerWrapper = styled.div`
   }
 `
 
-class Project extends Component {
+class Project extends Component<PageProps<Queries.ProjectQuery, { slug: string }>> {
   state = {
+    photo: undefined,
     lightbox: false,
     // eslint-disable-next-line react/destructuring-assignment
     photos: this.props.data.images.edges.map((image) => ({
       srcSet: image.node.childImageSharp.fluid.srcSet,
       src: image.node.childImageSharp.fixed.src,
-      thumbnail: image.node.childImageSharp.fixed.src,
-    })),
+      thumbnail: image.node.childImageSharp.fixed.src
+    }))
   }
 
   gotoPrevLightboxImage() {
@@ -87,7 +87,7 @@ class Project extends Component {
   render() {
     const {
       pageContext: { slug },
-      data: { project: postNode, images: imgs },
+      data: { project: postNode, images: imgs }
     } = this.props
     const images = imgs.edges
     const project = postNode.frontmatter
@@ -133,27 +133,8 @@ class Project extends Component {
 
 export default Project
 
-Project.propTypes = {
-  pageContext: PropTypes.shape({
-    slug: PropTypes.string.isRequired,
-    next: PropTypes.object,
-    prev: PropTypes.object,
-  }),
-  data: PropTypes.shape({
-    project: PropTypes.object.isRequired,
-    images: PropTypes.object.isRequired,
-  }).isRequired,
-}
-
-Project.defaultProps = {
-  pageContext: PropTypes.shape({
-    next: null,
-    prev: null,
-  }),
-}
-
 export const pageQuery = graphql`
-  query($slug: String!, $absolutePathRegex: String!) {
+  query Project($slug: String!, $absolutePathRegex: String!) {
     images: allFile(
       filter: {
         absolutePath: { regex: $absolutePathRegex }

@@ -1,16 +1,17 @@
-const path = require('path')
-const _ = require('lodash')
+import type { GatsbyNode } from 'gatsby'
+import path from 'path'
+import _ from 'lodash'
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
-const wrapper = (promise) =>
-  promise.then((result) => {
+const wrapper = (promise: any) =>
+  promise.then((result: any) => {
     if (result.errors) {
       throw result.errors
     }
     return result
   })
 
-exports.onCreateNode = ({ node, actions }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions }: any) => {
   const { createNodeField } = actions
   let slug
   // Search for MDX filenodes
@@ -33,14 +34,14 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode<Queries.ProjectNodesQuery>['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const projectTemplate = require.resolve('./src/templates/project.js')
+  const projectTemplate = path.resolve('./src/templates/project.tsx')
 
-  const result = await wrapper(
+  const result: { data: Queries.ProjectNodesQuery } = await wrapper(
     graphql(`
-      {
+      query ProjectNodes {
         projects: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
           edges {
             node {
@@ -72,8 +73,8 @@ exports.createPages = async ({ graphql, actions }) => {
         // Pass the current directory of the project as regex in context so that the GraphQL query can filter by it
         absolutePathRegex: `/^${path.dirname(edge.node.fileAbsolutePath)}/`,
         prev,
-        next,
-      },
+        next
+      }
     })
   })
 }
