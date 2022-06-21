@@ -7,7 +7,7 @@ describe('project', () => {
 
   it('should contain title, date, tags', () => {
     cy.visit('/forest/')
-    cy.location('pathname').should('eq', '/forest/')
+    cy.location('pathname').should('eq', '/forest')
     cy.findByText('Forest')
     cy.findByText('07.04.2019')
     cy.findByText('Nature')
