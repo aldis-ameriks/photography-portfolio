@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import Lightbox from 'react-images'
 import styled from 'styled-components'
 
-import { config } from '../../config/site'
+import { config } from '../config/site'
 import Layout from '../components/Layout'
 import ProjectHeader from '../components/ProjectHeader'
 import SEO from '../components/SEO'
@@ -162,7 +162,7 @@ export const pageQuery = graphql`
       parent {
         ... on File {
           mtime
-          birthtime
+          birthTime
         }
       }
       frontmatter {

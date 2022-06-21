@@ -16,18 +16,17 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions }: any)
   let slug
   // Search for MDX filenodes
   if (node.internal.type === 'Mdx') {
-    // If the frontmatter has a "slug", use it
     if (
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')
     ) {
+      // If the frontmatter has a "slug", use it
       slug = `/${_.kebabCase(node.frontmatter.slug)}`
-    }
-    // If not derive a slug from the "title" in the frontmatter
-    if (
+    } else if (
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
     ) {
+      // If not derive a slug from the "title" in the frontmatter
       slug = `/${_.kebabCase(node.frontmatter.title)}`
     }
     createNodeField({ node, name: 'slug', value: slug })

@@ -2,7 +2,6 @@ import { Link } from 'gatsby'
 import React from 'react'
 import { animated } from 'react-spring'
 import styled from 'styled-components'
-import arrow from '../images/left-chevron.svg'
 
 const Back = styled(Link)`
   display: flex;
@@ -24,7 +23,7 @@ const Name = styled(animated.h4)`
 
 const BackLink = (): JSX.Element => (
   <Back to="/">
-    <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
+    <img src="/icons/left-chevron.svg" data-info="back" alt="Back to home" aria-label="Back to home" />
     <Name>Home</Name>
   </Back>
 )

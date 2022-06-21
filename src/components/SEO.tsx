@@ -2,7 +2,7 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import { config } from '../../config/site'
+import { config } from '../config/site'
 
 const Head = (props: HeadProps & { data: Queries.SEOQuery }): JSX.Element => {
   const { postNode, postPath, postSEO, data } = props

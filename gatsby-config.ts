@@ -1,11 +1,12 @@
 import { GatsbyConfig } from 'gatsby'
 
-import { config } from './config/site'
+import { config } from './src/config/site'
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 const gatsbyConfig: GatsbyConfig = {
   pathPrefix: config.pathPrefix,
+  trailingSlash: 'never',
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix
   },
@@ -50,7 +51,6 @@ const gatsbyConfig: GatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-lodash',
-    'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',

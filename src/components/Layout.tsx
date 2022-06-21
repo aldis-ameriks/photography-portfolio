@@ -2,7 +2,7 @@
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 
-import theme from '../../config/theme'
+import theme from '../config/theme'
 import reset from '../styles/reset'
 import Footer from './Footer'
 import Navbar from './Navbar'

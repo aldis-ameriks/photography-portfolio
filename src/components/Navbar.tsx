@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import theme from '../../config/theme'
+import theme from '../config/theme'
 
 const NavbarStyled = styled.div`
   width: 100%;
