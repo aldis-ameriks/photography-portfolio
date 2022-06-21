@@ -14,7 +14,7 @@ export const config = {
   siteFBAppID: '', // Facebook App ID - Optional
   userTwitter: '', // Twitter Username
   ogSiteName: '', // Facebook Site Name
-  ogLanguage: 'npen_US', // og:language
+  ogLanguage: 'en_US', // og:language
   googleAnalyticsID: 'UA-134925752-3',
 
   // Manifest and Progress color
