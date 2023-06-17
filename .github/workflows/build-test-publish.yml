@@ -40,8 +40,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          start: npm start
-          wait-on: 'http://localhost:8000'
+          start: npm start -- -H 0.0.0.0
+          wait-on: 'http://127.0.0.1:8000'
           wait-on-timeout: 300
           install-command: npm ci --legacy-peer-deps
       - uses: actions/upload-artifact@v3
