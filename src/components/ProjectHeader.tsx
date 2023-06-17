@@ -1,4 +1,3 @@
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 import React from 'react'
 import { animated, config, useSpring } from 'react-spring'
 import styled from 'styled-components'
@@ -69,11 +68,7 @@ const ProjectHeader = ({
                 ))}
               </div>
             )}
-            {text && (
-              <Text>
-                <MDXRenderer>{text}</MDXRenderer>
-              </Text>
-            )}
+            {text && <Text>{text}</Text>}
           </animated.div>
         </Details>
       </Content>

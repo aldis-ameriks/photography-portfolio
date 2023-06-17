@@ -87,7 +87,8 @@ class Project extends Component<PageProps<Queries.ProjectQuery, { slug: string }
   render() {
     const {
       pageContext: { slug },
-      data: { project: postNode, images: imgs }
+      children,
+      data: { mdx: postNode, images: imgs }
     } = this.props
     const images = imgs.edges
     const project = postNode.frontmatter
@@ -95,7 +96,7 @@ class Project extends Component<PageProps<Queries.ProjectQuery, { slug: string }
     return (
       <Layout customSEO>
         <SEO postPath={slug} postNode={postNode} postSEO />
-        <ProjectHeader date={project.date} title={project.title} areas={project.areas} text={postNode.body} />
+        <ProjectHeader date={project.date} title={project.title} areas={project.areas} text={children} />
 
         <Background>
           <OuterWrapper>
@@ -133,7 +134,7 @@ export const pageQuery = graphql`
         absolutePath: { regex: $absolutePathRegex }
         extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
       }
-      sort: { fields: name, order: ASC }
+      sort: { name: ASC }
     ) {
       edges {
         node {
@@ -145,8 +146,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    project: mdx(fields: { slug: { eq: $slug } }) {
-      body
+    mdx(fields: { slug: { eq: $slug } }) {
       excerpt
       parent {
         ... on File {

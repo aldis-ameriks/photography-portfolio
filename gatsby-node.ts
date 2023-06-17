@@ -41,10 +41,12 @@ export const createPages: GatsbyNode<Queries.ProjectNodesQuery>['createPages'] =
   const result: { data: Queries.ProjectNodesQuery } = await wrapper(
     graphql(`
       query ProjectNodes {
-        projects: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+        projects: allMdx(sort: { frontmatter: { date: DESC } }) {
           edges {
             node {
-              fileAbsolutePath
+              internal {
+                contentFilePath
+              }
               fields {
                 slug
               }
@@ -66,11 +68,11 @@ export const createPages: GatsbyNode<Queries.ProjectNodesQuery>['createPages'] =
 
     createPage({
       path: edge.node.fields.slug,
-      component: projectTemplate,
+      component: `${projectTemplate}?__contentFilePath=${edge.node.internal.contentFilePath}`,
       context: {
         slug: edge.node.fields.slug,
         // Pass the current directory of the project as regex in context so that the GraphQL query can filter by it
-        absolutePathRegex: `/^${path.dirname(edge.node.fileAbsolutePath)}/`,
+        absolutePathRegex: `/^${path.dirname(edge.node.internal.contentFilePath)}/`,
         prev,
         next
       }
