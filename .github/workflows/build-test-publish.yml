@@ -38,18 +38,18 @@ jobs:
       - run: mkdir -p cypress/screenshots
       - run: mkdir -p cypress/videos
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5
         with:
           start: npm start
           wait-on: 'http://localhost:8000'
-          wait-on-timeout: 180
+          wait-on-timeout: 300
           install-command: npm ci --legacy-peer-deps
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: cypress-videos
