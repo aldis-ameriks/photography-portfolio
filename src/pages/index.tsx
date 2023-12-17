@@ -26,7 +26,7 @@ const Background = styled.div`
   background-color: ${(props) => props.theme.colors.bg};
 `
 
-const ClientSideOnlyLazy = React.lazy(() => import('../components/Gallery'))
+const GalleryClientSide = React.lazy(() => import('../components/Gallery'))
 
 const Index: React.FC<PageProps<Queries.HomeQuery>> = ({ data }) => {
   const isSSR = typeof window === 'undefined'
@@ -37,7 +37,7 @@ const Index: React.FC<PageProps<Queries.HomeQuery>> = ({ data }) => {
         <Content>
           {!isSSR && data.allFile.nodes.length > 0 && (
             <React.Suspense fallback={<div style={{ height: '100vh' }} />}>
-              <ClientSideOnlyLazy images={data.allFile.nodes.map((node) => node.childImageSharp)} />
+              <GalleryClientSide images={data.allFile.nodes.map((node) => node.childImageSharp)} />
             </React.Suspense>
           )}
           {/*{isSSR && <div style={{ height: '100vh' }} />}*/}
@@ -86,8 +86,9 @@ export const pageQuery = graphql`
       }
     }
 
-    allFile(filter: { sourceInstanceName: { eq: "gallery" } }) {
+    allFile(filter: { sourceInstanceName: { eq: "gallery" } }, sort: [{ birthTime: DESC }]) {
       nodes {
+        birthTime
         childImageSharp {
           fluid: gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
           fixed: gatsbyImageData(layout: FIXED, width: 100, height: 100, placeholder: BLURRED)
