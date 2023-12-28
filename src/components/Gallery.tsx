@@ -25,7 +25,7 @@ export const Gallery: React.FC<Props> = ({ images }) => {
     $('#gallery').justifiedGallery({
       rowHeight: 240,
       captions: false,
-      margins: 1
+      margins: 4
     })
   }, [])
 
