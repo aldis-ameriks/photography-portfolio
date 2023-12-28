@@ -7,7 +7,6 @@ const Content = styled.footer`
   font-size: 0.85rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background: ${(props) => props.theme.colors.bg};
 `
 
 const Footer = (): JSX.Element => (

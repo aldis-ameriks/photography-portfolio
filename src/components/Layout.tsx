@@ -14,13 +14,10 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
   }
-
-  .gatsby-resp-image-wrapper {
-    margin: 2.75rem 0;
-  }
 `
 
-const AbsoluteWrapper = styled.main`
+const Content = styled.main`
+  background-color: ${(props) => props.theme.colors.bg};
   position: absolute;
   top: 0;
   left: 0;
@@ -35,12 +32,12 @@ const Layout = ({ children, customSEO = false }: { children: React.ReactNode; cu
     <>
       {!customSEO && <SEO />}
       <GlobalStyle />
-      <AbsoluteWrapper>
+      <Content>
         <Navbar />
         <noscript>To browse this site, please enable JavaScript.</noscript>
         {children}
         <Footer />
-      </AbsoluteWrapper>
+      </Content>
     </>
   </ThemeProvider>
 )

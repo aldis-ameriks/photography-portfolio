@@ -17,10 +17,6 @@ const Grid = styled.div`
   }
 `
 
-const Background = styled.div`
-  background-color: ${(props) => props.theme.colors.bg};
-`
-
 const GalleryClientSide = React.lazy(() => import('../components/Gallery'))
 
 const Index: React.FC<PageProps<Queries.HomeQuery>> = ({ data }) => {
@@ -28,31 +24,28 @@ const Index: React.FC<PageProps<Queries.HomeQuery>> = ({ data }) => {
 
   return (
     <Layout>
-      <Background>
-        <Content>
-          {!isSSR && data.allFile.nodes.length > 0 && (
-            <React.Suspense fallback={<div style={{ height: '100vh' }} />}>
-              <GalleryClientSide images={data.allFile.nodes.map((node) => node.childImageSharp)} />
-            </React.Suspense>
-          )}
-          {/*{isSSR && <div style={{ height: '100vh' }} />}*/}
+      <Content>
+        {!isSSR && data.allFile.nodes.length > 0 && (
+          <React.Suspense fallback={<div style={{ height: '100vh' }} />}>
+            <GalleryClientSide images={data.allFile.nodes.map((node) => node.childImageSharp)} />
+          </React.Suspense>
+        )}
 
-          <Header />
-          <Grid>
-            {data.allMdx.edges.map((project, index) => (
-              <Card
-                delay={index}
-                date={project.node.frontmatter.date}
-                title={project.node.frontmatter.title}
-                cover={project.node.frontmatter.cover.childImageSharp.gatsbyImageData}
-                path={project.node.fields.slug}
-                areas={project.node.frontmatter.areas}
-                key={project.node.fields.slug}
-              />
-            ))}
-          </Grid>
-        </Content>
-      </Background>
+        <Header />
+        <Grid>
+          {data.allMdx.edges.map((project, index) => (
+            <Card
+              delay={index}
+              date={project.node.frontmatter.date}
+              title={project.node.frontmatter.title}
+              cover={project.node.frontmatter.cover.childImageSharp.gatsbyImageData}
+              path={project.node.fields.slug}
+              areas={project.node.frontmatter.areas}
+              key={project.node.fields.slug}
+            />
+          ))}
+        </Grid>
+      </Content>
     </Layout>
   )
 }
