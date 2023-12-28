@@ -168,6 +168,7 @@ const Head = (props: HeadProps & { data: Queries.SEOQuery }): JSX.Element => {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type HeadProps = { postSEO?: boolean; postPath?: string; postNode?: any }
 
 const SEO = (props: HeadProps): JSX.Element => (
