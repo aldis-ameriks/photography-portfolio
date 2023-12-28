@@ -12,7 +12,7 @@ const Content = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: ${(props) => props.theme.maxWidths.general};
-  padding: 0 1.0875rem 5rem 1.0875rem;
+  padding: 0 ${(props) => props.theme.contentPadding};
   color: ${(props) => props.theme.colors.secondary};
 `
 
