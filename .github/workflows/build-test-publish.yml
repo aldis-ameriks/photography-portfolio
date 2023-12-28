@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm ci --legacy-peer-deps
+      - run: npm ci
       - run: npm run lint
         env:
           CI: true
@@ -43,7 +43,7 @@ jobs:
           start: npm start -- -H 0.0.0.0
           wait-on: 'http://127.0.0.1:8000'
           wait-on-timeout: 300
-          install-command: npm ci --legacy-peer-deps
+          install-command: npm ci
       - uses: actions/upload-artifact@v3
         if: failure()
         with:
