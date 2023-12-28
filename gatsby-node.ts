@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { GatsbyNode } from 'gatsby'
 import path from 'path'
-import _ from 'lodash'
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = (promise: any) =>
@@ -22,13 +21,13 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions }: any)
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')
     ) {
       // If the frontmatter has a "slug", use it
-      slug = `/${_.kebabCase(node.frontmatter.slug)}`
+      slug = `/${convertToKebabCase(node.frontmatter.slug)}`
     } else if (
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
     ) {
       // If not derive a slug from the "title" in the frontmatter
-      slug = `/${_.kebabCase(node.frontmatter.title)}`
+      slug = `/${convertToKebabCase(node.frontmatter.title)}`
     }
     createNodeField({ node, name: 'slug', value: slug })
   }
@@ -80,3 +79,9 @@ export const createPages: GatsbyNode<Queries.ProjectNodesQuery>['createPages'] =
     })
   })
 }
+
+const convertToKebabCase = (text: string) =>
+  text
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/[\s_]+/g, '-')
+    .toLowerCase()
