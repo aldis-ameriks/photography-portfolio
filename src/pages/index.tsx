@@ -15,11 +15,6 @@ const Grid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
-
-  .gatsby-image-outer-wrapper,
-  .gatsby-image-wrapper {
-    position: static !important;
-  }
 `
 
 const Background = styled.div`

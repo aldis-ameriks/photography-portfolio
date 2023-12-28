@@ -31,15 +31,16 @@ const Cover = styled.div`
   height: 100%;
   position: absolute;
 
-  div {
+  > div {
     overflow: hidden;
+    position: static;
   }
 `
 
 const Content = styled.div`
   transition: opacity 0.3s ease;
   opacity: 0;
-  background: ${(props) => rgba(props.theme.colors.bg, 0.8)};
+  background-color: ${(props) => rgba(props.theme.colors.bg, 0.8)};
 
   position: absolute;
   top: 0;
