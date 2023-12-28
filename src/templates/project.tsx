@@ -1,7 +1,6 @@
 import { graphql, PageProps } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import Gallery from '../components/Gallery'
 import Layout from '../components/Layout'
 import ProjectHeader from '../components/ProjectHeader'
 import SEO from '../components/SEO'
@@ -10,11 +9,14 @@ const Content = styled.div`
   padding: 0 ${(props) => props.theme.contentPadding};
 `
 
+const GalleryClientSide = React.lazy(() => import('../components/Gallery'))
+
 const Project = ({
   children,
   pageContext: { slug },
   data: { mdx: postNode, images }
 }: PageProps<Queries.ProjectQuery, { slug: string }>) => {
+  const isSSR = typeof window === 'undefined'
   const project = postNode.frontmatter
   return (
     <Layout customSEO>
@@ -22,12 +24,16 @@ const Project = ({
       <ProjectHeader date={project.date} title={project.title} areas={project.areas} text={children} />
 
       <Content>
-        <Gallery
-          images={images.edges.map((image) => ({
-            fixed: image.node.childImageSharp.fixed,
-            fluid: image.node.childImageSharp.fluid
-          }))}
-        />
+        {!isSSR && (
+          <React.Suspense fallback={<div style={{ height: '100vh' }} />}>
+            <GalleryClientSide
+              images={images.edges.map((image) => ({
+                fixed: image.node.childImageSharp.fixed,
+                fluid: image.node.childImageSharp.fluid
+              }))}
+            />
+          </React.Suspense>
+        )}
       </Content>
     </Layout>
   )
