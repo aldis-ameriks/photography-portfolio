@@ -21,13 +21,13 @@ const SocialLink = styled.a`
   padding: 0.35rem 0.5rem;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 3px 10px 0 rgba(0, 0, 0, 0.2);
   transition: all 400ms ease;
   font-size: 0.8rem;
 
-  :hover,
-  :focus {
-    box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.4);
+  &:hover,
+  &:focus {
+    box-shadow: 2px 3px 10px 0 rgba(0, 0, 0, 0.4);
     color: black;
   }
 
