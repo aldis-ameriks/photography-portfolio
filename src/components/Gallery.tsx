@@ -1,17 +1,21 @@
-import 'justifiedGallery/dist/css/justifiedGallery.min.css'
-import 'justifiedGallery/dist/js/jquery.justifiedGallery.min'
 import { getSrc, getSrcSet, IGatsbyImageData } from 'gatsby-plugin-image'
-import $ from 'jquery'
-import React, { useEffect, useMemo, useState } from 'react'
-import styled from 'styled-components'
+import React, { useMemo, useState } from 'react'
 import Lightbox from 'react-images'
+import { Masonry } from 'react-plock'
+import styled from 'styled-components'
 
 const Wrapper = styled.div`
   margin-bottom: 50px;
 `
 
-const ImageWrapper = styled.div`
+const ImageButton = styled.button`
+  all: unset;
   cursor: pointer;
+`
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
 `
 
 type Props = {
@@ -20,14 +24,6 @@ type Props = {
 
 export const Gallery: React.FC<Props> = ({ images }) => {
   const [photo, setPhoto] = useState(null)
-
-  useEffect(() => {
-    $('#gallery').justifiedGallery({
-      rowHeight: 240,
-      captions: false,
-      margins: 4
-    })
-  }, [])
 
   const photos = useMemo(
     () =>
@@ -53,20 +49,31 @@ export const Gallery: React.FC<Props> = ({ images }) => {
     setPhoto(null)
   }
 
+  const filteredImages = images.filter((image) => image?.fluid && image?.fixed)
+
   return (
-    <Wrapper id="gallery" className="justified-gallery">
-      {images
-        .filter((image) => image?.fluid && image?.fixed)
-        .map((image, i) => (
-          <ImageWrapper
-            key={i}
-            onClick={() => {
-              setPhoto(i)
-            }}
-          >
-            <img src={getSrc(image.fluid)} alt="Gallery image" />
-          </ImageWrapper>
-        ))}
+    <Wrapper>
+      <Masonry
+        items={filteredImages}
+        config={{
+          columns: [1, 2, 3],
+          gap: [16, 12, 6],
+          media: [640, 768, 1024]
+        }}
+        render={(item, idx) => {
+          const imageSrc = getSrc(item.fluid)
+          const imageIndex = filteredImages.findIndex((image) => getSrc(image.fluid) === imageSrc)
+          return (
+            <ImageButton
+              onClick={() => {
+                setPhoto(imageIndex)
+              }}
+            >
+              <Image key={idx} src={imageSrc} alt="Gallery image" />
+            </ImageButton>
+          )
+        }}
+      />
 
       <Lightbox
         backdropClosesModal

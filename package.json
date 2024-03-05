@@ -28,6 +28,7 @@
     "test:e2e:dev": "start-server-and-test dev http://localhost:8000 cy:open",
     "test:e2e:run": "start-server-and-test start http://localhost:8000 cy:run",
     "docker:build": "docker build -t docker.pkg.github.com/aldis-ameriks/photography-portfolio/photography-portfolio .",
+    "docker:build:mac": "docker buildx build --platform linux/amd64 --push -t docker.pkg.github.com/aldis-ameriks/photography-portfolio/photography-portfolio .",
     "docker:push": "docker push docker.pkg.github.com/aldis-ameriks/photography-portfolio/photography-portfolio",
     "docker:build:push": "npm run docker:build && npm run docker:push",
     "docker:run": "docker run -p 8000:8000 --rm docker.pkg.github.com/aldis-ameriks/photography-portfolio/photography-portfolio"
@@ -49,14 +50,13 @@
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-source-filesystem": "5.13.1",
     "gatsby-transformer-sharp": "5.13.1",
-    "jquery": "3.7.1",
-    "justifiedGallery": "3.8.1",
     "polished": "4.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
     "react-images": "0.5.19",
     "react-is": "18.2.0",
+    "react-plock": "3.1.0",
     "react-spring": "9.7.3",
     "styled-components": "6.1.8"
   },
