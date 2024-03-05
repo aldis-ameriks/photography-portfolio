@@ -9,11 +9,11 @@ import Layout from '../components/Layout'
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(${(props) => props.theme.gridColumns}, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 50px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `
 

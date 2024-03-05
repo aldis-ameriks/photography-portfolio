@@ -10,10 +10,8 @@ export default {
     linkHover: '#79a8ff'
   },
   maxWidths: {
-    general: '1600px',
-    project: 1600
+    general: '1600px'
   },
-  gridColumns: 2, // Number of columns of the grid on the index page
   contentPadding: '1rem',
   breakpoints: {
     xs: '400px',
