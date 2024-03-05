@@ -70,7 +70,7 @@ export const Gallery: React.FC<Props> = ({ images }) => {
                 setPhoto(imageIndex)
               }}
             >
-              <Image key={idx} src={imageSrc} alt="Gallery image" />
+              <Image src={imageSrc} alt="Gallery image" />
             </ImageButton>
           )
         }}
