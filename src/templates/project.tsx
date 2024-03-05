@@ -1,13 +1,9 @@
 import { graphql, PageProps } from 'gatsby'
 import React from 'react'
-import styled from 'styled-components'
+import Content from '../components/Content'
 import Layout from '../components/Layout'
 import ProjectHeader from '../components/ProjectHeader'
 import SEO from '../components/SEO'
-
-const Content = styled.div`
-  padding: 0 ${(props) => props.theme.contentPadding};
-`
 
 const GalleryClientSide = React.lazy(() => import('../components/Gallery'))
 
