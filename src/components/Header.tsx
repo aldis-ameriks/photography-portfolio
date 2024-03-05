@@ -21,7 +21,7 @@ const Content = styled.div`
 
 const Name = styled.h1`
   margin: 1rem 0 0.25rem 0;
-  color: ${(props) => props.theme.colors.color};
+  color: ${(props) => props.theme.colors.text};
 `
 
 const Header = ({ text }: { text?: string }): JSX.Element => (

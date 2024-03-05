@@ -13,12 +13,14 @@ const CardItem = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  color: ${(props) => props.theme.colors.color};
+  color: ${(props) => props.theme.colors.text};
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: ${(props) => props.theme.colors.color};
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+    color: ${(props) => props.theme.colors.text};
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 15px 12px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.s}) {

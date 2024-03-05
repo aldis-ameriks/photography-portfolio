@@ -69,11 +69,7 @@ const reset = css`
     }
   }
   body {
-    color: ${theme.colors.color};
-  }
-  ::selection {
-    /// color: ${theme.colors.white};
-    // background-color: ${theme.colors.link};
+    color: ${theme.colors.text};
   }
   a {
     color: ${theme.colors.link};
@@ -141,7 +137,7 @@ const reset = css`
   caption {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    color: ${theme.colors.color};
+    color: ${theme.colors.text};
     text-align: center;
     caption-side: bottom;
   }

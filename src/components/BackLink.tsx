@@ -18,7 +18,7 @@ const Back = styled(Link)`
 
 const Name = styled(animated.h4)`
   margin: 0;
-  color: ${(props) => props.theme.colors.color};
+  color: ${(props) => props.theme.colors.text};
 `
 
 const BackLink = (): JSX.Element => (

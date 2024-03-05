@@ -22,7 +22,7 @@ const Details = styled.div`
   text-align: center;
 
   h1 {
-    color: ${(props) => props.theme.colors.color};
+    color: ${(props) => props.theme.colors.text};
   }
 `
 
