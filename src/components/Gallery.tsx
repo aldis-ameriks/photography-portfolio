@@ -65,6 +65,7 @@ export const Gallery: React.FC<Props> = ({ images }) => {
           const imageIndex = filteredImages.findIndex((image) => getSrc(image.fluid) === imageSrc)
           return (
             <ImageButton
+              key={idx}
               onClick={() => {
                 setPhoto(imageIndex)
               }}
