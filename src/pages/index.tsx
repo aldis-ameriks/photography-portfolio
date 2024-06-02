@@ -74,7 +74,7 @@ export const pageQuery = graphql`
       }
     }
 
-    allFile(filter: { sourceInstanceName: { eq: "gallery" } }, sort: [{ birthTime: DESC }]) {
+    allFile(filter: { sourceInstanceName: { eq: "gallery" } }, sort: [{ name: DESC }]) {
       nodes {
         birthTime
         childImageSharp {
