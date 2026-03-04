@@ -1,4 +1,4 @@
-FROM node:20-buster as builder
+FROM node:25-bookworm AS builder
 
 WORKDIR /app
 ENV NODE_ENV=production
