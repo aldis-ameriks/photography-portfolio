@@ -82,7 +82,7 @@
       "react": "$react",
       "react-dom": "$react-dom"
     },
-    "lmdb": "3.5.1",
+    "lmdb": "2.9.4",
     "msgpackr": "1.11.8"
   }
 }
