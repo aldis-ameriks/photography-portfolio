@@ -20,6 +20,7 @@ type Props = {
 
 export const Gallery: React.FC<Props> = ({ images }) => {
   const [photo, setPhoto] = useState(null)
+  const scrollPositionRef = React.useRef(0)
 
   useEffect(() => {
     $('#gallery').justifiedGallery({
@@ -50,7 +51,11 @@ export const Gallery: React.FC<Props> = ({ images }) => {
   }
 
   const handleClose = () => {
+    const scrollY = scrollPositionRef.current
     setPhoto(null)
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollY)
+    })
   }
 
   return (
@@ -61,6 +66,7 @@ export const Gallery: React.FC<Props> = ({ images }) => {
           <ImageWrapper
             key={i}
             onClick={() => {
+              scrollPositionRef.current = window.scrollY
               setPhoto(i)
             }}
           >
