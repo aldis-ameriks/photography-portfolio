@@ -61,3 +61,5 @@ bundle-stats.json
 
 cypress/screenshots
 cypress/videos
+
+CLAUDE.local.md
